@@ -6,14 +6,11 @@ export default function Results() {
   const {searchResults} = useContext(SoundtrackContext)
 
   return (
-    <div>
-      <h1>RESULTS</h1>
-      {searchResults.map((item)=>{
-       
-         return <ResultsItemList   key= {item.assetLink} assetType={item.assetType} assetName={item.assetName}/>
-      })}
+    <div className="container">
       <ul>
-     
+      {searchResults.map((item)=>{
+       return <ResultsItemList   key= {item.assetLink} assetLink={item.assetLink} assetType={item.assetType} assetName={item.assetName}/>
+    })}
       </ul>
     </div>
   )
