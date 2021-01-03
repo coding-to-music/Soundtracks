@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function SongsItemList() {
+export default function SongsItemList(props) {
   return (
     <div>
        <ul>
-        <li>List Item</li>
+        <li>{props.song.title} - {props.song.artist}</li>
       </ul>
     </div>
   )

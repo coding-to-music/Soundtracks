@@ -1,14 +1,17 @@
 import React, {useReducer} from 'react'
 import SoundtrackContext from './soundtrackContext'
 import soundtrackReducer from './soundtrackReducer'
-import {SEARCH_RESULTS, SELECTED_RESULT} from './actions'
+import {SEARCH_RESULTS, SELECTED_RESULT, SONG_RESULTS} from './actions'
 
 function SoundtrackState(props) {
  
  // set the inital state for all vars in the state
   const initalState = {
         searchResults:[],
-        selectedResult: {}
+        selectedResult: {},
+        seasonResult:[],
+        episodeResults:[],
+        songResults:[]
  }
 
  // set up state and dispatch vars for the reducuer
@@ -28,14 +31,20 @@ const setSearchResultsFromAPI = (results)=>{
 
 // set the user selected asset into state
 const setSelectedResult = (assetItem)=>{
-  console.log(assetItem)
   dispatch({
     type: SELECTED_RESULT,
     payload: assetItem
   })
 }
 
+const setSongResults = (songsArray)=>{
+  dispatch({
+    type:SONG_RESULTS,
+    payload: songsArray
+  })
 
+
+}
 
 // RETURN HERE 
 
@@ -44,8 +53,13 @@ return (
 value={{
 // reutrn state values or function s listed here 
 searchResults: state.searchResults,
+selectedResult: state.selectedResult,
+seasonResult: state.seasonResult,
+episodeResults: state.episodeResults,
+songResults : state.songResults,
 setSearchResultsFromAPI,
-setSelectedResult
+setSelectedResult,
+setSongResults
 }}>
  {props.children}
 </SoundtrackContext.Provider>
