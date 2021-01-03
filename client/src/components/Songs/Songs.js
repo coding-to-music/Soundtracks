@@ -32,8 +32,8 @@ export default function Songs() {
   
   return (
     <div>
-      {console.log(songResults)}
       <NavBar/>
+      <h1 className="display-6 mt-2 shadow p-3 mb-5 bg-white rounded">SONGS</h1>
       {songResults.map((item)=>{
         return <SongItemList key={item.title} song={item}/>
 

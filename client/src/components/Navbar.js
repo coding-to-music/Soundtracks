@@ -6,7 +6,7 @@ export default function Navbar() {
      <div className="container-fluid">
      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
   <div className="container-fluid">
-    <img data-testid='logo' className='border border-3'src='http://via.placeholder.com/100' alt='placeholder'></img>
+    <img data-testid='logo' className='border border-3' src='/images/logo.svg' alt='placeholder'></img>
    <div className="ms-3 me-3">
    <a className="navbar-brand" href="/">SoundTrack</a>
    </div>
@@ -36,4 +36,4 @@ export default function Navbar() {
 
 
 
-
+// src='http://via.placeholder.com/100'

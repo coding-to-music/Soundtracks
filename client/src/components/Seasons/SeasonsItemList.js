@@ -15,12 +15,12 @@ export default function SeasonsItemList(props) {
 
   return (
     <div>
-    <li className="list-group-item">
+    <li className="list-group-item list-item">
       <div className='row' onClick={()=>{handleClick(props.seasondetail)}}>
-        <div className='col-4'><img className='ellipse ' src='/images/Ellipse-1.png' alt='elipse'/> </div>
+        <div className='col-4 '><img className='ellipse ' src='/images/Ellipse-1.png' alt='elipse'/> </div>
       
       <div className='col'><p className='text-capitalize display-6'>{props.seasondetail.assetSeason} </p>
-      <h5 className='text-capitalize  badge bg-primary fw-light'>{props.seasondetail.assetName}</h5>
+      <h5 className='text-capitalize fw-light'>{props.seasondetail.assetName}</h5>
       </div>
      
       </div>

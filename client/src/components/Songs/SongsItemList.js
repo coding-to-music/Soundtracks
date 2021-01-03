@@ -8,7 +8,7 @@ export default function SongsItemList(props) {
     <div className='col-4'><img className='ellipse ' src='/images/Ellipse-1.png' alt='elipse'/> </div>
   
   <div className='col'><p className='text-capitalize display-6'>{props.song.title} </p>
-  <h5 className='text-capitalize  badge bg-primary fw-light'>{props.song.artist}</h5>
+  <h5 className='text-capitalize fw-light'>{props.song.artist}</h5>
   </div>
  
   </div>

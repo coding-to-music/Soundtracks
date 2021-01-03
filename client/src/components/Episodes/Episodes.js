@@ -23,7 +23,7 @@ async function getEpisodes(assetLink){
     <div>
       <NavBar/>
       {console.log(episodeResults)}
-      <h1>EPISODES</h1>
+      <h1 className="display-6 mt-2 shadow p-3 mb-5 bg-white rounded">EPISODES</h1>
       {episodeResults.map((item)=>{
         return   <EpisodeItemList key={item.assetLink} episodedetail={item}/>
       })}

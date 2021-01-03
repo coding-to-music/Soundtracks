@@ -25,7 +25,7 @@ getSeasons(selectedResult.assetLink).then((seasons)=>{
   return (
     <div>
     <NavBar/>
-      <h1>SEASONS</h1>
+      <h1 className="display-6 mt-2 shadow p-3 mb-5 bg-white rounded ">SEASONS</h1>
       {seasonResults.map((item)=>{
         return   <SeasonsItemList  key={item.assetLink}  seasondetail={item}  />
       })}
