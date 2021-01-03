@@ -7,7 +7,7 @@ export default function SearchBar() {
 
 const inputReference = useRef();
 
-const {searchResultsFromAPI} = useContext(SoundtrackContext)
+const {setSearchResultsFromAPI} = useContext(SoundtrackContext)
 
 
 const getSearchResults = async(searchStr)=>{
@@ -22,7 +22,7 @@ const getSearchResults = async(searchStr)=>{
     getSearchResults(inputReference.current.value).then((results)=>{
       if (results.data !== undefined){
         // console.log(results.data)
-        searchResultsFromAPI(results.data)
+        setSearchResultsFromAPI(results.data)
       }
       else {
         console.log('no search results found')

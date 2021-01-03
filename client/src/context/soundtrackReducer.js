@@ -1,4 +1,4 @@
-import {SEARCH_RESULTS} from './actions'
+import {SEARCH_RESULTS, SELECTED_RESULT,SONG_RESULTS} from './actions'
 
 const soundtrackReducer =(state,action)=>{
 
@@ -9,6 +9,18 @@ const soundtrackReducer =(state,action)=>{
         searchResults: action.payload
       }
       
+    case SELECTED_RESULT:
+      return {
+        ...state,
+        selectedResult: action.payload
+      }
+
+    case SONG_RESULTS:
+        return {
+          ...state,
+          songResults: action.payload
+        }
+
       default:
         return state
   }

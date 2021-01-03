@@ -7,9 +7,9 @@ export default function Results() {
 
   return (
     <div className="container">
-      <ul>
+      <ul className="mt-3">
       {searchResults.map((item)=>{
-       return <ResultsItemList   key= {item.assetLink} assetLink={item.assetLink} assetType={item.assetType} assetName={item.assetName}/>
+       return <ResultsItemList   key= {item.assetLink} asset={item}/>
     })}
       </ul>
     </div>
