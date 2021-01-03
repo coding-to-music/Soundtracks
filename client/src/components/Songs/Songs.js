@@ -3,6 +3,7 @@ import api from '../../utils/api'
 import SongItemList from './SongsItemList'
 import SoundtrackContext from '../../context/soundtrackContext'
 import NavBar from '../Navbar'
+
 export default function Songs() {
   
   const {selectedResult, setSongResults,songResults}= useContext(SoundtrackContext)

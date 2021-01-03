@@ -1,7 +1,7 @@
 import React, {useReducer} from 'react'
 import SoundtrackContext from './soundtrackContext'
 import soundtrackReducer from './soundtrackReducer'
-import {SEARCH_RESULTS, SELECTED_RESULT, SONG_RESULTS} from './actions'
+import {SEARCH_RESULTS, SELECTED_RESULT, SONG_RESULTS, SEASON_RESULTS, SELECTED_SEASON, EPISODE_RESULTS,SELECTED_EPISODE} from './actions'
 
 function SoundtrackState(props) {
  
@@ -9,7 +9,9 @@ function SoundtrackState(props) {
   const initalState = {
         searchResults:[],
         selectedResult: {},
-        seasonResult:[],
+        selectedSeason:{},
+        selectedEpisode:{},
+        seasonResults:[],
         episodeResults:[],
         songResults:[]
  }
@@ -37,13 +39,40 @@ const setSelectedResult = (assetItem)=>{
   })
 }
 
+const setSelectedSeason = (assetItem)=>{
+  dispatch({
+    type: SELECTED_SEASON,
+    payload: assetItem
+  })
+}
+
+const setSelectedEpisode = (assetItem)=>{
+  dispatch({
+    type: SELECTED_EPISODE,
+    payload: assetItem
+  })
+}
+
 const setSongResults = (songsArray)=>{
   dispatch({
     type:SONG_RESULTS,
     payload: songsArray
   })
+}
 
 
+const setSeasonResults = (seasonsArray)=>{
+  dispatch({
+    type:SEASON_RESULTS,
+    payload: seasonsArray
+  })
+}
+
+const setEpisodeResults = (episodeArray)=>{
+  dispatch({
+    type:EPISODE_RESULTS,
+    payload: episodeArray
+  })
 }
 
 // RETURN HERE 
@@ -54,12 +83,18 @@ value={{
 // reutrn state values or function s listed here 
 searchResults: state.searchResults,
 selectedResult: state.selectedResult,
-seasonResult: state.seasonResult,
+seasonResults: state.seasonResults,
 episodeResults: state.episodeResults,
 songResults : state.songResults,
+selectedSeason: state.selectedSeason,
+selectedEpisode: state.selectedEpisode,
 setSearchResultsFromAPI,
 setSelectedResult,
-setSongResults
+setSongResults,
+setSeasonResults,
+setSelectedSeason,
+setEpisodeResults,
+setSelectedEpisode,
 }}>
  {props.children}
 </SoundtrackContext.Provider>

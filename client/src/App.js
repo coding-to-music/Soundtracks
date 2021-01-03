@@ -5,6 +5,7 @@ import Results from './components/Results/Results'
 import Seasons from './components/Seasons/Seasons'
 import Episodes from './components/Episodes/Episodes'
 import Songs from './components/Songs/Songs'
+import ShowSongs from './components/Songs/ShowSongs'
 import Error from './components/Errors/Error'
 import SearchDatabase from './components/Database/SearchDatabase'
 
@@ -32,6 +33,10 @@ import SearchDatabase from './components/Database/SearchDatabase'
 
           <Route excat path='/songs'>
             <Songs/>
+          </Route>
+
+          <Route excat path='/show/songs'>
+            <ShowSongs/>
           </Route>
 
           <Route excat path='/databasesearch'>

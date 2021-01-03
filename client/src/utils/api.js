@@ -12,8 +12,14 @@ getSeasons: function (queryStr){
  return axios.post('http://localhost:3000/api/season',{
    assetLink: queryStr
  })
-
 },
+
+getEpisodes: function (queryStr){
+  return axios.post('http://localhost:3000/api/episode',{
+    assetLink: queryStr
+  })
+ },
+
 getSongs: function (queryStr){
   return axios.post('http://localhost:3000/api/songlist',{
     assetLink: queryStr
