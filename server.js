@@ -9,6 +9,8 @@ const episode = require("./routes/api/episode");
 const showSonglist = require("./routes/api/show-songlist");
 const songlist = require("./routes/api/songlist");
 const youtubeSearch = require('./routes/api/youtube-search')
+const allSeasonSongs = require('./routes/api/allSeasonSongs')
+
 // const allSeasonSongs = require("./routes/api/allSeasonSongs");
 
 // SETUP THE WEB SERVIER AND MAKE A PUBLIC FOLDER FOR HTML/IMAGE FILES
@@ -25,6 +27,7 @@ app.use(episode);
 app.use(songlist);
 app.use(showSonglist);
 app.use(youtubeSearch)
+app.use(allSeasonSongs)
 
 // app.use(allSeasonSongs);
 
