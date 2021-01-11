@@ -1,7 +1,7 @@
 import React, {useReducer} from 'react'
 import SoundtrackContext from './soundtrackContext'
 import soundtrackReducer from './soundtrackReducer'
-import {SEARCH_RESULTS, SELECTED_RESULT, SONG_RESULTS, SEASON_RESULTS, SELECTED_SEASON, EPISODE_RESULTS,SELECTED_EPISODE} from './actions'
+import {SEARCH_RESULTS, SELECTED_RESULT, SONG_RESULTS, SEASON_RESULTS, SELECTED_SEASON, EPISODE_RESULTS,SELECTED_EPISODE, YOUTUBE_SEARCH_RESULTS} from './actions'
 
 function SoundtrackState(props) {
  
@@ -13,7 +13,8 @@ function SoundtrackState(props) {
         selectedEpisode:{},
         seasonResults:[],
         episodeResults:[],
-        songResults:[]
+        songResults:[],
+        youtubeResults:[]
  }
 
  // set up state and dispatch vars for the reducuer
@@ -60,6 +61,15 @@ const setSongResults = (songsArray)=>{
   })
 }
 
+const setYoutubeResults = (youtubeResultsArray)=>{
+  console.log('-------setYoutubeRestuls---------')
+  console.log(youtubeResultsArray)
+  dispatch({
+    type:YOUTUBE_SEARCH_RESULTS,
+    payload: youtubeResultsArray
+  })
+}
+
 
 const setSeasonResults = (seasonsArray)=>{
   dispatch({
@@ -88,6 +98,7 @@ episodeResults: state.episodeResults,
 songResults : state.songResults,
 selectedSeason: state.selectedSeason,
 selectedEpisode: state.selectedEpisode,
+youtubeResults: state.youtubeResults,
 setSearchResultsFromAPI,
 setSelectedResult,
 setSongResults,
@@ -95,6 +106,7 @@ setSeasonResults,
 setSelectedSeason,
 setEpisodeResults,
 setSelectedEpisode,
+setYoutubeResults
 }}>
  {props.children}
 </SoundtrackContext.Provider>

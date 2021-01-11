@@ -29,5 +29,15 @@ getShowSongs: function (queryStr){
   return axios.post('http://localhost:3000/api/show/songlist',{
     assetLink: queryStr
   })
+},
+getYoutube: function (queryStr){
+  return axios.post('http://localhost:3000/api/youtubesearch',{
+    searchString: queryStr
+  })
 }
+
+
+
+
+
 }
