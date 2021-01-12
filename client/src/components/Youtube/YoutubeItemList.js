@@ -28,6 +28,7 @@ export default function YoutubeItemList(props) {
       day: 'numeric'
     }
   );
+  
   return (
     <div>
       {console.log(props.youtube)}
