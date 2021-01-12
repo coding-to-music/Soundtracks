@@ -34,10 +34,23 @@ getYoutube: function (queryStr){
   return axios.post('http://localhost:3000/api/youtubesearch',{
     searchString: queryStr
   })
+},
+
+getYoutubeVideo: function (videoId){
+  return axios.post('http://localhost:3000/api/youtubevideo',{
+   videoId:videoId
+  })
+
+},
+
 }
 
-
-
-
-
-}
+// {
+//   "part": [
+//     "player"
+//   ],
+//   "id": [
+//     "Ks-_Mh1QhMc"
+//   ]
+// }
+//  GET https://youtube.googleapis.com/youtube/v3/videos?part=player&id=Ks-_Mh1QhMc&key=[YOUR_API_KEY] HTTP/1.1

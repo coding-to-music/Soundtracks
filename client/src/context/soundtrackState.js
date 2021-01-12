@@ -1,7 +1,11 @@
 import React, {useReducer} from 'react'
 import SoundtrackContext from './soundtrackContext'
 import soundtrackReducer from './soundtrackReducer'
-import {SEARCH_RESULTS, SELECTED_RESULT, SONG_RESULTS, SEASON_RESULTS, SELECTED_SEASON, EPISODE_RESULTS,SELECTED_EPISODE, YOUTUBE_SEARCH_RESULTS} from './actions'
+import {SEARCH_RESULTS, SELECTED_RESULT, 
+  SONG_RESULTS, SEASON_RESULTS, 
+  SELECTED_SEASON, EPISODE_RESULTS,
+  SELECTED_EPISODE, YOUTUBE_SEARCH_RESULTS,
+YOUTUBE_VIDEO} from './actions'
 
 function SoundtrackState(props) {
  
@@ -14,7 +18,8 @@ function SoundtrackState(props) {
         seasonResults:[],
         episodeResults:[],
         songResults:[],
-        youtubeResults:{}
+        youtubeResults:{},
+        youtubeVideo:{}
  }
 
  // set up state and dispatch vars for the reducuer
@@ -85,6 +90,13 @@ const setEpisodeResults = (episodeArray)=>{
   })
 }
 
+const setYoutubeVideo = (videoObj)=>{
+  dispatch({
+    type:YOUTUBE_VIDEO,
+    payload: videoObj
+  })
+}
+
 // RETURN HERE 
 
 return (
@@ -99,6 +111,8 @@ songResults : state.songResults,
 selectedSeason: state.selectedSeason,
 selectedEpisode: state.selectedEpisode,
 youtubeResults: state.youtubeResults,
+youtubeVideo: state.youtubeVideo,
+setYoutubeVideo,
 setSearchResultsFromAPI,
 setSelectedResult,
 setSongResults,

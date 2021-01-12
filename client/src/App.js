@@ -7,7 +7,6 @@ import Episodes from './components/Episodes/Episodes'
 import Songs from './components/Songs/Songs'
 import ShowSongs from './components/Songs/ShowSongs'
 import Youtube from './components/Youtube/Youtube'
-import YoutubePlayer from './components/Youtube/YoutubePlayer'
 import Error from './components/Errors/Error'
 import SearchDatabase from './components/Database/SearchDatabase'
 
@@ -49,10 +48,6 @@ import SearchDatabase from './components/Database/SearchDatabase'
             <Youtube/>
           </Route>
           
-          <Route excat path="/player">
-            <YoutubePlayer/>
-          </Route>
-
           <Route path='*'>
             <Error/>
           </Route>

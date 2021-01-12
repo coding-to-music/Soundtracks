@@ -1,7 +1,7 @@
 import React, {useContext, useEffect} from 'react'
 import SoundtrackContext from '../../context/soundtrackContext'
 import NavBar from '../Navbar'
-import api from '../../utils/api'
+
 import YoutubeItemList from './YoutubeItemList'
 
 export default function Youtube() {
