@@ -34,14 +34,17 @@ export default function YoutubeItemList(props) {
       {console.log(props.youtube)}
     <li className="list-group-item">
       <div className='row'>
-        <div className='col-4'>
-          <iframe title="video"  src={srcString} frameborder="1" marginwidth="10" allow="accelerometer; autoplay; fullscreen" allowfullscreen/>
+        <div className='col-4 iframe-container'>
+          <iframe title="video"  src={srcString} frameborder="1" allow="accelerometer; autoplay; fullscreen" allowfullscreen/>
           </div>
-      
+   
       <div className='col'><p className='text-capitalize display-6'>{title} </p>
       <h4 className='text-capitalize fw-light'> {date}</h4>
       <p className='text-capitalize fw-light'>{props.youtube.snippet.description}</p>
+    
+
       </div>
+   
      
       </div>
     
