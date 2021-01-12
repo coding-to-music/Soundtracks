@@ -1,4 +1,8 @@
-import {SEARCH_RESULTS, SELECTED_RESULT,SONG_RESULTS, SEASON_RESULTS, SELECTED_SEASON, EPISODE_RESULTS,SELECTED_EPISODE} from './actions'
+import {SEARCH_RESULTS, SELECTED_RESULT,
+  SONG_RESULTS, SEASON_RESULTS, 
+  SELECTED_SEASON, EPISODE_RESULTS,
+  SELECTED_EPISODE,YOUTUBE_SEARCH_RESULTS,
+  YOUTUBE_VIDEO} from './actions'
 
 const soundtrackReducer =(state,action)=>{
 
@@ -42,6 +46,18 @@ const soundtrackReducer =(state,action)=>{
           ...state,
           episodeResults: action.payload
           }
+
+    case YOUTUBE_SEARCH_RESULTS:
+        return {
+          ...state,
+          youtubeResults: action.payload
+          }
+
+    case YOUTUBE_VIDEO:
+        return {
+          ...state,
+          youtubeVideo: action.payload
+              }
 
       default:
         return state

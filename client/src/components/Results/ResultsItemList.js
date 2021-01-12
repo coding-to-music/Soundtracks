@@ -16,7 +16,7 @@ export default function ResultsItemList(props) {
       history.push('/seasons')
     }
     else {
-      console.log('going to get the songs now')
+     
       history.push('/songs')
     }
   }

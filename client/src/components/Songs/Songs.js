@@ -2,12 +2,14 @@ import React, {useContext, useEffect} from 'react'
 import api from '../../utils/api'
 import SongItemList from './SongsItemList'
 import SoundtrackContext from '../../context/soundtrackContext'
+import { useHistory } from "react-router-dom";
 import NavBar from '../Navbar'
 
 export default function Songs() {
   
   const {selectedResult, setSongResults,songResults}= useContext(SoundtrackContext)
-  
+  const history = useHistory()  
+
   async function getMoiveSongs(assetLink) {
     return await api.getSongs(selectedResult.assetLink)
   }
@@ -30,10 +32,16 @@ export default function Songs() {
    
   },[])
   
+const handleClick =()=> {
+  console.log('clicking')
+  history.push('/youtube')
+}
+
   return (
     <div>
       <NavBar/>
       <h1 className="display-6 mt-2 shadow p-3 mb-5 bg-white rounded">SONGS</h1>
+
       {songResults.map((item)=>{
         return <SongItemList key={item.title} song={item}/>
 

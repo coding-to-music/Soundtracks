@@ -1,5 +1,6 @@
 import SongItemList from './SongsItemList'
 import React, {useContext, useEffect} from 'react'
+import { useHistory } from "react-router-dom";
 import api from '../../utils/api'
 import NavBar from '../Navbar'
 import SoundtrackContext from '../../context/soundtrackContext'
@@ -7,7 +8,7 @@ import SoundtrackContext from '../../context/soundtrackContext'
 
 export default function ShowSongs() {
   const {selectedEpisode,setSongResults,songResults }= useContext(SoundtrackContext)
-
+  const history = useHistory()  
 
   async function getShowSongs(assetLink){
     return await api.getShowSongs(assetLink)
@@ -19,6 +20,11 @@ export default function ShowSongs() {
       setSongResults(songs.data)
     })
   },[])
+
+  const handleClick =()=> {
+    console.log('clicking')
+    history.push('/youtube')
+  }
 
   return (
     <div>

@@ -14,18 +14,17 @@ router.get("/api/youtubesearch", (req, res) => {
 
 
 const getYouTubeData = async (searchString) => {
-  console.log(searchString)
   const videoList =  await google.youtube('v3').search.list({
     key: YOUTUBE_KEY,
     part: 'snippet',
     type: 'video',
     q: searchString
   })
+  return videoList
+}
 
-const videoID = videoList.data.items[0].id.videoId
-// console.log('-------VIDEOID----------')
-// console.log(videoID)
-  
+
+const getYoutubeVideo = async(videoId)=>{
   const videoLink = await google.youtube('v3').videos.list(
     {
       key: YOUTUBE_KEY,
@@ -33,22 +32,26 @@ const videoID = videoList.data.items[0].id.videoId
         "player"
       ],
       "id": [
-        videoID
+        videoId
       ]
     }
   )
-  console.log('-------VIDEO LINK----------') 
- console.log(videoLink.data.items) 
-  return videoList
+  // console.log('-------getYoutubeVideo----------') 
+  // console.log(videoLink.data.items) 
+    return videoLink
+
 }
 
 router.post('/api/youtubesearch', ({body},res) => {
     const result = getYouTubeData(body.searchString).then((result)=>{
-    // console.log('----POST----')
-    // console.log(body.searchString)
-    // console.log(result.data.items)
     res.json(result.data.items)
     })
     })
+
+router.post('/api/youtubevideo', ({body},res) => {
+    const result = getYoutubeVideo(body.videoId).then((result)=>{
+      res.json(result.data.items)
+      })
+      })
 
     module.exports = router;
