@@ -29,7 +29,7 @@ export default function ShowSongs() {
   return (
     <div>
     <NavBar/>
-    <h1 className="display-6 mt-2 shadow p-3 mb-5 bg-white rounded">SONGS<button className='btn btn-primary ms-4' onClick={()=>{handleClick()}}> Playlist</button></h1>
+    <h1 className="display-6 mt-2 shadow p-3 mb-5 bg-white rounded">SONGS</h1>
     {songResults.map((item)=>{
       return <SongItemList key={item.title} song={item}/>
 

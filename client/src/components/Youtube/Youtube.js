@@ -6,32 +6,17 @@ import YoutubeItemList from './YoutubeItemList'
 
 export default function Youtube() {
 
-  const {songResults,setYoutubeResults, youtubeResults}= useContext(SoundtrackContext)
-
-  async function getYoutubeSearchResults(query) {
-    return await api.getYoutube(query)
-  }
-
-  useEffect(()=>{
-    songResults.map(async (item)=>{
-      // console.log('----------youtube useEffect---------')
-      // console.log(`${item.title}  ${item.artist}`)
-      const youtubeRestuls = await getYoutubeSearchResults(`${item.title}  ${item.artist}`)
-      setYoutubeResults(youtubeRestuls.data)
-      
-    })
-    
-   },[])
-
+  const {youtubeResults}= useContext(SoundtrackContext)
 
   return (
     <div>
         <NavBar/>
-        {console.log(youtubeResults)}
-      <h1>Youtube</h1>
       {youtubeResults && youtubeResults.map((item)=>{
-        // return <YoutubeItemList key={item.title} youtube={item}/>
-        console.log(item)
+         return   <YoutubeItemList key={item.id.videoId} youtube={item}/>
+        // return <div>
+        // <h1> <a  href="https://www.youtube.com/embed/FAS2uBy5jog\">{item.snippet.title}</a></h1>
+        // <img src={item.snippet.thumbnails.default.url} alt='thumbnail'/>
+        // </div>
 
 
       })}

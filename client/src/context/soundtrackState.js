@@ -14,7 +14,7 @@ function SoundtrackState(props) {
         seasonResults:[],
         episodeResults:[],
         songResults:[],
-        youtubeResults:[]
+        youtubeResults:{}
  }
 
  // set up state and dispatch vars for the reducuer
@@ -61,12 +61,12 @@ const setSongResults = (songsArray)=>{
   })
 }
 
-const setYoutubeResults = (youtubeResultsArray)=>{
-  console.log('-------setYoutubeRestuls---------')
-  console.log(youtubeResultsArray)
+const setYoutubeResults = (youtubeResults)=>{
+  // console.log('-------setYoutubeRestuls---------')
+  // console.log(youtubeResultsArray)
   dispatch({
     type:YOUTUBE_SEARCH_RESULTS,
-    payload: youtubeResultsArray
+    payload: youtubeResults
   })
 }
 
