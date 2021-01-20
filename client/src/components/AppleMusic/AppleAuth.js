@@ -2,29 +2,43 @@
 import React, {useContext} from 'react'
 import SoundtrackContext from '../../context/soundtrackContext'
 import MusicProvider from '../../core/ MusicProvider'
+import axios from 'axios'
+
 
 let musicProvider = MusicProvider.sharedProvider();
-musicProvider.configure();
-let musicInstance = musicProvider.getMusicInstance();
-
-
 
 export default function AppleAuth() {
-  console.log('musicInstance', musicInstance)
-  // const {setAppleUserToken }= useContext(SoundtrackContext)
+  const {appleUserToken,setAppleUserToken}= useContext(SoundtrackContext)
 
 
-  const handleAuthClick = async (event)=>{
-      console.log('auth button clicked')
+  const handleSignIn = async (event)=>{
+    
+      const result = await axios.get('/api/devtoken')
+      musicProvider.configure(result.data.token)
+      const musicInstance = musicProvider.getMusicInstance();
       const auth = await musicInstance.authorize()
-      console.log('userAuth', auth)
+      setAppleUserToken(auth)
   }
+
+  const handleSignOut = async (event)=>{
+    
+    const result = await axios.get('/api/devtoken')
+    musicProvider.configure(result.data.token)
+    const musicInstance = musicProvider.getMusicInstance();
+    const auth = await musicInstance.unauthorize()
+    setAppleUserToken(auth)
+}
 
 
   return (
     <div>
-       <button type="button" id="authorize-btn" class="btn btn-primary col-1 m-3" onClick={()=>{handleAuthClick()}}>Authorize</button>
-      <button type="button" id="apple-music-unauthorize" class="btn btn-primary col-1 m-3">UnAuthorize</button>
+      {console.log(appleUserToken)}
+      {appleUserToken ? <p className="navbar-brand" onClick={()=>{handleSignOut()}}> Sign Out <img className="rounded-circle" src='/images/left-apple-logo.svg' alt='sign out'  /></p> :
+      
+      <p className="navbar-brand" onClick={()=>{handleSignIn()}} > Sign In <img className="rounded-circle" src='/images/left-black-apple.svg' alt='sign in' /></p> 
+      }
+     {/* <p>{appleUserToken ? 'Sign out' : 'Sign in'}<img className="rounded-circle" src='/images/apple-black-logo.svg' alt='sign in' onClick={()=>{handleAuthClick()}} /></p> */}
+   
     </div>
   )
 }

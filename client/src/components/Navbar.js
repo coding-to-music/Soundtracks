@@ -1,4 +1,7 @@
 import React from 'react'
+import AppleAuth from './AppleMusic/AppleAuth'
+
+
 
 export default function Navbar() {
   return (
@@ -7,6 +10,7 @@ export default function Navbar() {
      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
   <div className="container-fluid">
     <a href="/"><img data-testid='logo' className='border border-3' src='/images/logo.svg' alt='placeholder'></img></a>
+   
    <div className="ms-3 me-3">
    <a className="navbar-brand" href="/">SoundTrack</a>
    </div>
@@ -24,7 +28,7 @@ export default function Navbar() {
           <a className="nav-link" href="/databasesearch">Database</a>
         </li>
       </ul>
-
+      <AppleAuth/>
     </div>
   </div>
 </nav>

@@ -15,7 +15,7 @@ console.log("alg, ", alg)
 // setup json payload for the jwt signing
 payload = {
   "iss": teamId,
-  "exp": Math.floor((Date.now() / 1000)+43200),
+  "exp": Math.floor((Date.now() / 1000)+60),
   "iat": Math.floor(Date.now() / 1000)
 }
 

@@ -5,7 +5,7 @@ import {SEARCH_RESULTS, SELECTED_RESULT,
   SONG_RESULTS, SEASON_RESULTS, 
   SELECTED_SEASON, EPISODE_RESULTS,
   SELECTED_EPISODE, YOUTUBE_SEARCH_RESULTS,
-YOUTUBE_VIDEO} from './actions'
+YOUTUBE_VIDEO, APPLE_USER_TOKEN} from './actions'
 
 function SoundtrackState(props) {
  
@@ -19,7 +19,8 @@ function SoundtrackState(props) {
         episodeResults:[],
         songResults:[],
         youtubeResults:{},
-        youtubeVideo:{}
+        youtubeVideo:{},
+        appleUserToken:{}
  }
 
  // set up state and dispatch vars for the reducuer
@@ -97,6 +98,14 @@ const setYoutubeVideo = (videoObj)=>{
   })
 }
 
+const setAppleUserToken = (authToken)=>{
+  dispatch({
+    type:APPLE_USER_TOKEN,
+    payload: authToken
+  })
+}
+
+
 // RETURN HERE 
 
 return (
@@ -112,6 +121,7 @@ selectedSeason: state.selectedSeason,
 selectedEpisode: state.selectedEpisode,
 youtubeResults: state.youtubeResults,
 youtubeVideo: state.youtubeVideo,
+appleUserToken: state.appleUserToken,
 setYoutubeVideo,
 setSearchResultsFromAPI,
 setSelectedResult,
@@ -120,7 +130,8 @@ setSeasonResults,
 setSelectedSeason,
 setEpisodeResults,
 setSelectedEpisode,
-setYoutubeResults
+setYoutubeResults,
+setAppleUserToken
 }}>
  {props.children}
 </SoundtrackContext.Provider>
