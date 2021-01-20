@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test-client" : "cd ./client && npm test",
+    "test-client": "cd ./client && npm test",
     "seed": "node seed/seeder.js",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run dev",
     "start:prod": "node server.js",
@@ -24,6 +24,7 @@
     "concurrently": "^5.3.0",
     "express": "^4.17.1",
     "googleapis": "^66.0.0",
+    "jsonwebtoken": "^8.5.1",
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
