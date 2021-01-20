@@ -1,6 +1,7 @@
 // SETUP AND BRING IN MODULES 
 const express = require('express');
 const PORT = process.env.PORT || 8080;
+require('dotenv').config();
 
 // BRING IN THE FILES DEFINING ALL THE ROUTES
 const search = require("./routes/api/search");
@@ -9,6 +10,7 @@ const episode = require("./routes/api/episode");
 const showSonglist = require("./routes/api/show-songlist");
 const songlist = require("./routes/api/songlist");
 const youtubeSearch = require('./routes/api/youtube-search')
+const appleSearch = require('./routes/api/apple-search')
 const allSeasonSongs = require('./routes/api/allSeasonSongs')
 
 // const allSeasonSongs = require("./routes/api/allSeasonSongs");
@@ -28,6 +30,9 @@ app.use(songlist);
 app.use(showSonglist);
 app.use(youtubeSearch)
 app.use(allSeasonSongs)
+app.use(allSeasonSongs)
+app.use(appleSearch);
+
 
 // app.use(allSeasonSongs);
 

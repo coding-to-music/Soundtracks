@@ -2,10 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import MusicProvider from './core/ MusicProvider'
+
+// let musicProvider = MusicProvider.sharedProvider();
+// musicProvider.configure();
+// let musicInstance = musicProvider.getMusicInstance();
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
