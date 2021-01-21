@@ -30,8 +30,7 @@ router.get("/api/songlist", (req, res) => {
 
 router.post("/api/songlist", (req,res) => {
   const responseArray = []
-  console.log('MADE THE CALL')
-  console.log(req.body)
+ 
 
   getSongs(req.body).then((data)=>{
     res.json(data)

@@ -40,8 +40,13 @@ getYoutubeVideo: function (videoId){
   return axios.post('http://localhost:3000/api/youtubevideo',{
    videoId:videoId
   })
-
 },
+getAppleSongResult: function (queryStr){
+  return axios.post('http://localhost:3000/api/applesearch',{
+    searchString:queryStr
+  })
+},
+
 
 }
 

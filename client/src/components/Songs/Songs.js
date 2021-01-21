@@ -26,22 +26,23 @@ export default function Songs() {
    } else {
     getShowSongs(selectedResult.assetLink).then((songs)=>{
       setSongResults(songs.data)
+     
+  
     })
 
    }
    
   },[])
   
-const handleClick =()=> {
-  console.log('clicking')
-  history.push('/youtube')
+const handleClick = async ()=>{
+history.push('/playlist')
 }
 
   return (
     <div>
       <NavBar/>
-      <h1 className="display-6 mt-2 shadow p-3 mb-5 bg-white rounded">SONGS</h1>
-
+      <h1 className="display-6 mt-2 shadow p-3 mb-5 bg-white rounded">SONGS <img onClick={()=>{handleClick(songResults)}} src='/images/create-playlist-icon.svg' alt='create playlist'/></h1>
+   
       {songResults.map((item)=>{
         return <SongItemList key={item.title} song={item}/>
 

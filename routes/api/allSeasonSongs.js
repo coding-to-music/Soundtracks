@@ -16,8 +16,7 @@ router.post("/api/all-season-songs", (req,res) => {
 getEpisodesforSeason(req.body.assetLink).then((episodes)=>{
   
   getSongsforSeason(episodes.data).then((data)=>{
-    console.log('-------data------')
-    console.log(data)
+
     res.json(data)
   })
 }) 
@@ -32,8 +31,7 @@ getEpisodesforSeason(req.body.assetLink).then((episodes)=>{
  async function getSongsforSeason(episodes) {
    let allSeasonSongs=[]
   const allSongs = await episodes.map(async (item)=>{
-    console.log('-------item------')
-    console.log(item)
+   
     return await axios.post('http://localhost:8080/api/show/songlist',{
       assetLink: item.assetLink
     })

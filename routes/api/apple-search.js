@@ -9,9 +9,7 @@ const teamId = process.env.TEAM_ID
 const keyId = process.env.KEY_ID
 const alg = process.env.ALG
 
-console.log('teamid, ', teamId)
-console.log('keyid, ', keyId)
-console.log("alg, ", alg)
+
 // setup json payload for the jwt signing
 payload = {
   "iss": teamId,
@@ -22,8 +20,7 @@ payload = {
 
 // FUNCTIONS
 async function getSongResults(searchStr,token){
-  console.log('token: ', token)
-  console.log('search string: ', searchStr)
+
   const url = `https://api.music.apple.com/v1/catalog/us/search?term=${searchStr}&limit=1&types=songs`
   const headers = {
     headers: {
@@ -31,7 +28,7 @@ async function getSongResults(searchStr,token){
     }}
   
   const response = await axios.get(url,headers);
-  console.log('response: ', response)
+  // console.log('response: ', response)
   return response
 }
   

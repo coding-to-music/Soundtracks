@@ -1,0 +1,6 @@
+
+song id =   results.songs.data[0].id
+album name = results.songs.data[0].attributes.albumName
+artist name = results.songs.data[0].attributes.artistName
+artwork = results.songs.data[0].attributes.artwork.url
+release date = results.songs.data[0].attributes.releaseDate
