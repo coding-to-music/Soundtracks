@@ -31,8 +31,8 @@ async function getSongResults(searchStr,token){
   try{ 
     
     if(response.data.results.songs){
-      console.log('-------STATUS------------')
-    console.log(response.status , searchStr)
+    // console.log('-------STATUS------------')
+    // console.log(response.status , searchStr)
       return response
     }else {
      console.log('---------DID NOT FIND--------')
