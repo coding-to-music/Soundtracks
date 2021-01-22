@@ -20,7 +20,7 @@ router.get("/api/episode", (req, res) => {
 */
 router.post("/api/episode", (req,res) => {
   const responseArray = []
-  console.log(req.body)
+ 
 
   getEpisode(req.body).then((data)=>{
     res.json(data)

@@ -30,7 +30,7 @@ data.forEach((item)=> {
   const builtJSON = buildJSON(item)
   responseArray.push(builtJSON)
 })
-console.log(responseArray)
+
 res.json(responseArray);
 })
 

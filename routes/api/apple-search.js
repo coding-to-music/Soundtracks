@@ -9,9 +9,7 @@ const teamId = process.env.TEAM_ID
 const keyId = process.env.KEY_ID
 const alg = process.env.ALG
 
-console.log('teamid, ', teamId)
-console.log('keyid, ', keyId)
-console.log("alg, ", alg)
+
 // setup json payload for the jwt signing
 payload = {
   "iss": teamId,
@@ -22,8 +20,7 @@ payload = {
 
 // FUNCTIONS
 async function getSongResults(searchStr,token){
-  console.log('token: ', token)
-  console.log('search string: ', searchStr)
+
   const url = `https://api.music.apple.com/v1/catalog/us/search?term=${searchStr}&limit=1&types=songs`
   const headers = {
     headers: {
@@ -31,8 +28,23 @@ async function getSongResults(searchStr,token){
     }}
   
   const response = await axios.get(url,headers);
-  console.log('response: ', response)
-  return response
+  try{ 
+    
+    if(response.data.results.songs){
+    // console.log('-------STATUS------------')
+    // console.log(response.status , searchStr)
+      return response
+    }else {
+     console.log('---------DID NOT FIND--------')
+     console.log(searchStr)
+      return false
+    }
+
+ 
+}catch (err) {
+ 
+  console.log(searchStr, err )
+}
 }
   
 
@@ -45,7 +57,14 @@ router.post('/api/applesearch', ({body},res) => {
   const privateKey = process.env.SECRET_KEY
   const devToken = jwt.sign(payload, privateKey, { algorithm: alg, header:{kid:keyId}});
   const result = getSongResults(body.searchString,devToken).then((result)=>{
-    res.json(result.data)
+    if (result){
+  
+      res.json(result.data)
+    } else { 
+      res.json()
+      // res.send(`No results found for:  ${body.searchString}`);
+      
+}
     })
   })
 

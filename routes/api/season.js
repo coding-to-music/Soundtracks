@@ -27,7 +27,7 @@ router.post("/api/season", (req,res) => {
     responseArray.push(builtJSON)
    
   })
-  console.log(responseArray);
+  
   res.json(responseArray);
  
   })
