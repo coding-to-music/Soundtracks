@@ -19,8 +19,8 @@ export default function SeasonsItemList(props) {
       <div className='row' onClick={()=>{handleClick(props.seasondetail)}}>
         <div className='col-4 '><img className='ellipse ' src='/images/Ellipse-1.png' alt='elipse'/> </div>
       
-      <div className='col'><p className='text-capitalize display-6'>{props.seasondetail.assetSeason} </p>
-      <h5 className='text-capitalize fw-light'>{props.seasondetail.assetName}</h5>
+      <div className='col'><p className='text-capitalize headline-text'>{props.seasondetail.assetSeason} </p>
+      <p className=' subline-text text-capitalize fw-light'>{props.seasondetail.assetName}</p>
       </div>
      
       </div>

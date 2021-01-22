@@ -17,8 +17,8 @@ export default function EpisodeItemList(props) {
       <div className='row' onClick={()=>{handleClick(props.episodedetail)}}>
         <div className='col-4'><img className='ellipse ' src='/images/Ellipse-1.png' alt='elipse'/> </div>
       
-      <div className='col'><p className='text-capitalize display-6'>{props.episodedetail.assetName} </p>
-      <h5 className='text-capitalize fw-light'>Songs<p className="ms-2 badge bg-primary ">{props.episodedetail.assetSongs}</p></h5>
+      <div className='col'><p className='text-capitalize subline-text'>{props.episodedetail.assetName} </p>
+      <p className=' subline-text text-capitalize fw-light'>Songs<p className="ms-2 badge bg-primary ">{props.episodedetail.assetSongs}</p></p>
       </div>
      
       </div>

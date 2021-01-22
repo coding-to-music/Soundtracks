@@ -21,7 +21,7 @@ function SoundtrackState(props) {
         songResults:[],
         youtubeResults:{},
         youtubeVideo:{},
-        appleUserToken:{},
+        appleUserToken:false,
         appleSongs:[],
  }
 

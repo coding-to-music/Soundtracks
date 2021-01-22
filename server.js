@@ -13,6 +13,7 @@ const youtubeSearch = require('./routes/api/youtube-search')
 const appleSearch = require('./routes/api/apple-search')
 const allSeasonSongs = require('./routes/api/allSeasonSongs')
 const devToken = require('./routes/api/devToken')
+const applePlaylist = require('./routes/api/appleCreatePlaylist')
 // const allSeasonSongs = require("./routes/api/allSeasonSongs");
 
 // SETUP THE WEB SERVIER AND MAKE A PUBLIC FOLDER FOR HTML/IMAGE FILES
@@ -33,6 +34,7 @@ app.use(allSeasonSongs)
 app.use(allSeasonSongs)
 app.use(appleSearch);
 app.use(devToken);
+app.use(applePlaylist);
 
 
 // app.use(allSeasonSongs);

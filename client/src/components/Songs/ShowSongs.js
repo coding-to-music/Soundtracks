@@ -50,7 +50,8 @@ return songsObject
   return (
     <div>
     <NavBar/>
-    <h1 className="display-6 mt-2 shadow p-3 mb-5 bg-white rounded text-capitalize">{selectedResult.assetName} / {selectedSeason.assetSeason} / {selectedEpisode.assetName} <img className="icons" onClick={()=>{handleClick(songResults)}} src='/images/playlist.png' alt='create playlist'/> <span></span></h1>
+
+    <p className=" mt-2 shadow p-3 mb-5 bg-white rounded text-capitalize">{selectedResult.assetName} / {selectedSeason.assetSeason} / {selectedEpisode.assetName} <img className="icons" onClick={()=>{handleClick(songResults)}} src='/images/playlist.png' alt='create playlist'/> <span></span></p>
 
     {songResults.map((item)=>{
       return <SongItemList key={item.title} song={item}/>

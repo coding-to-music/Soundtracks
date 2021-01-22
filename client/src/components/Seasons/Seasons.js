@@ -7,7 +7,7 @@ import SeasonsItemList from './SeasonsItemList'
 
 export default function Seasons() {
 
-const {selectedResult,setSeasonResults, seasonResults}= useContext(SoundtrackContext)
+const {selectedResult,selectedSeason, selectedEpisode,setSeasonResults, seasonResults}= useContext(SoundtrackContext)
 
 async function getSeasons(assetLink){
   return await api.getSeasons(assetLink)
@@ -26,7 +26,8 @@ getSeasons(selectedResult.assetLink).then((seasons)=>{
   return (
     <div>
     <NavBar/>
-      <h1 className="display-6 mt-2 shadow p-3 mb-5 bg-white rounded text-capitalize">{selectedResult.assetName}</h1>
+
+      <p className="mt-2 shadow p-3 mb-5 bg-white rounded text-capitalize">{selectedResult.assetName}</p>
       {seasonResults.map((item)=>{
         return   <SeasonsItemList  key={item.assetLink}  seasondetail={item}  />
       })}

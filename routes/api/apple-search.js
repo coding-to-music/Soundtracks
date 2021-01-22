@@ -56,6 +56,7 @@ router.get("/api/applesearch", (req, res) => {
 router.post('/api/applesearch', ({body},res) => {
   const privateKey = process.env.SECRET_KEY
   const devToken = jwt.sign(payload, privateKey, { algorithm: alg, header:{kid:keyId}});
+  console.log("devToken: ", devToken)
   const result = getSongResults(body.searchString,devToken).then((result)=>{
     if (result){
   
