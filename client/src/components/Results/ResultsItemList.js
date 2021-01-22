@@ -8,6 +8,7 @@ export default function ResultsItemList(props) {
   const history = useHistory()  
 
   const handleClick = (item)=>{
+    console.log(item)
     // set the selected item in state to other pages can read it 
     setSelectedResult(item)
     // determine if asset is a show or other, this will dictate the workflow needed and set to the proper url
