@@ -28,8 +28,23 @@ async function getSongResults(searchStr,token){
     }}
   
   const response = await axios.get(url,headers);
-  // console.log('response: ', response)
-  return response
+  try{ 
+    
+    if(response.data.results.songs){
+      console.log('-------STATUS------------')
+    console.log(response.status , searchStr)
+      return response
+    }else {
+     console.log('---------DID NOT FIND--------')
+     console.log(searchStr)
+      return false
+    }
+
+ 
+}catch (err) {
+ 
+  console.log(searchStr, err )
+}
 }
   
 
@@ -42,7 +57,14 @@ router.post('/api/applesearch', ({body},res) => {
   const privateKey = process.env.SECRET_KEY
   const devToken = jwt.sign(payload, privateKey, { algorithm: alg, header:{kid:keyId}});
   const result = getSongResults(body.searchString,devToken).then((result)=>{
-    res.json(result.data)
+    if (result){
+  
+      res.json(result.data)
+    } else { 
+      res.json()
+      // res.send(`No results found for:  ${body.searchString}`);
+      
+}
     })
   })
 

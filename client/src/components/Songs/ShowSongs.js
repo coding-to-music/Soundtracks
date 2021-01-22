@@ -23,19 +23,24 @@ export default function ShowSongs() {
 
 const getAppleSongs = async (SongArray)=>{
   const songsObject =  await SongArray.map(async (item)=>{
-  const searchStr = `${item.title} ${item.artist}`
+    const title = item.title.replace(/[^a-zA-Z0-9\s]/g, ' ')
+    const artist = item.artist.replace(/[^a-zA-Z0-9\s]/g, ' ')
+  const searchStr = `${title} ${artist}`
   const result = await api.getAppleSongResult(searchStr)
-  return result.data
+  if (result.data){
+    console.log(result.data)
+    return result.data
+  }
   })
-
 return songsObject
 }
 
 
   const handleClick = async ()=>{
    const songs = await getAppleSongs(songResults)
-   
   Promise.all(songs).then((data)=>{
+    console.log('-------SHOW SONGS----------')
+    console.log(data)
     setAppleSongs(data)  
   })
     history.push('/playlist')

@@ -50,12 +50,4 @@ getAppleSongResult: function (queryStr){
 
 }
 
-// {
-//   "part": [
-//     "player"
-//   ],
-//   "id": [
-//     "Ks-_Mh1QhMc"
-//   ]
-// }
-//  GET https://youtube.googleapis.com/youtube/v3/videos?part=player&id=Ks-_Mh1QhMc&key=[YOUR_API_KEY] HTTP/1.1
+
