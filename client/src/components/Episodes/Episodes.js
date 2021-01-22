@@ -5,7 +5,7 @@ import NavBar from '../Navbar'
 import SoundtrackContext from '../../context/soundtrackContext'
 
 export default function Episodes() {
-  const {selectedSeason, setEpisodeResults, episodeResults}= useContext(SoundtrackContext)
+  const {selectedResult,selectedSeason, setEpisodeResults, episodeResults}= useContext(SoundtrackContext)
 
 
 async function getEpisodes(assetLink){
@@ -13,6 +13,7 @@ async function getEpisodes(assetLink){
 }
 
   useEffect(()=>{
+    console.log(selectedSeason)
     getEpisodes(selectedSeason.assetLink).then((episode)=>{
     setEpisodeResults(episode.data)
     })
@@ -22,8 +23,7 @@ async function getEpisodes(assetLink){
   return (
     <div>
       <NavBar/>
-      {console.log(episodeResults)}
-      <h1 className="display-6 mt-2 shadow p-3 mb-5 bg-white rounded">EPISODES</h1>
+      <p className="mt-2 shadow p-3 mb-5 bg-white rounded text-capitalize">{selectedResult.assetName} / {selectedSeason.assetSeason}</p>
       {episodeResults.map((item)=>{
         return   <EpisodeItemList key={item.assetLink} episodedetail={item}/>
       })}

@@ -38,9 +38,9 @@ export default function YoutubeItemList(props) {
           <iframe title="video"  src={srcString} frameborder="1" allow="accelerometer; autoplay; fullscreen" allowfullscreen/>
           </div>
    
-      <div className='col'><p className='text-capitalize display-6'>{title} </p>
-      <h4 className='text-capitalize fw-light'> {date}</h4>
-      <p className='text-capitalize fw-light'>{props.youtube.snippet.description}</p>
+      <div className='col'><p className='text-capitalize headline-text'>{title} </p>
+      <p className='subline-text text-capitalize fw-light'> {date}</p>
+      <p className='subline-text text-capitalize fw-light'>{props.youtube.snippet.description}</p>
     
 
       </div>

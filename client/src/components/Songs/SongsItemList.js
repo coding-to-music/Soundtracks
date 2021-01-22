@@ -33,8 +33,8 @@ history.push('/youtube')
   <div className='row' onClick={()=>{handleClick(props)}}>
     <div className='col-4'><img className='ellipse ' src='/images/Ellipse-1.png' alt='elipse'/> </div>
   
-  <div className='col'><p className='text-capitalize display-6'>{props.song.title} </p>
-  <h5 className='text-capitalize fw-light'>{props.song.artist}</h5>
+  <div className='col'><p className='text-capitalize headline-text'>{props.song.title} </p>
+  <p className=' subline-text text-capitalize fw-light'>{props.song.artist}</p>
   </div>
  
   </div>

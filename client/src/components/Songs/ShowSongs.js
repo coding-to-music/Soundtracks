@@ -6,7 +6,7 @@ import NavBar from '../Navbar'
 import SoundtrackContext from '../../context/soundtrackContext'
 
 export default function ShowSongs() {
-  const {selectedEpisode,setSongResults,songResults,setAppleSongs }= useContext(SoundtrackContext)
+  const {selectedResult,selectedEpisode,selectedSeason,setSongResults,songResults,setAppleSongs }= useContext(SoundtrackContext)
   const history = useHistory()  
 
   async function getShowSongs(assetLink){
@@ -14,6 +14,7 @@ export default function ShowSongs() {
   }
 
   useEffect(()=>{
+    console.log(selectedEpisode)
     getShowSongs(selectedEpisode.assetLink).then((songs)=>{
 
       setSongResults(songs.data)
@@ -49,7 +50,8 @@ return songsObject
   return (
     <div>
     <NavBar/>
-    <h1 className="display-6 mt-2 shadow p-3 mb-5 bg-white rounded">SONGS <img className="icons" onClick={()=>{handleClick(songResults)}} src='/images/playlist.png' alt='create playlist'/> <span></span></h1>
+
+    <p className=" mt-2 shadow p-3 mb-5 bg-white rounded text-capitalize">{selectedResult.assetName} / {selectedSeason.assetSeason} / {selectedEpisode.assetName} <img className="icons" onClick={()=>{handleClick(songResults)}} src='/images/playlist.png' alt='create playlist'/> <span></span></p>
 
     {songResults.map((item)=>{
       return <SongItemList key={item.title} song={item}/>

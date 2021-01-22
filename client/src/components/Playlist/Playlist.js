@@ -6,20 +6,61 @@ import PlaylistItemList from './PlaylistItem'
 
 export default function Youtube() {
 
-  const {appleSongs}= useContext(SoundtrackContext)
+  const {appleSongs,selectedResult,selectedEpisode,selectedSeason}= useContext(SoundtrackContext)
 
- 
+
+
+
+  const createPlaylistJson= ()=>{
+   let songJson=[]
+   appleSongs.map((item)=>{
+      songJson= [...songJson, {
+         id:item.results.songs.data[0].id,
+         type:"songs"
+      }]
+   })
+  
+
+   const playlistJson={
+      attributes: {
+         name: `${selectedResult.assetName} ${selectedEpisode.assetName}`,
+         description: "Created by my way cool soundtrack app"
+      },
+      relationships:{
+         tracks:{
+            data:
+               songJson
+            
+         }
+      }
+   
+     }
+
+     return playlistJson
+
+  }
+
+  
+
+
+
+
+
+
+ const handleAddPlaylist = ()=>{
+   console.log('one day i will add a playlist')
+   const json =createPlaylistJson()
+   console.log(json)
+   
+ }
 
   return (
     <div>
         <NavBar/>
       
-   <h1>PLAYLIST</h1>
- {console.log('---------PLAYLIST RETURN-----------')}
- {console.log(appleSongs)}
-
+        <p className=" mt-2 shadow p-3 mb-5 bg-white rounded text-capitalize">{selectedResult.assetName} / {selectedSeason.assetSeason} / {selectedEpisode.assetName} <span>  <img  onClick={()=>{handleAddPlaylist()}} className="icons" src='/images/add-playlist.png' alt='create playlist'/></span></p>
 {appleSongs.map((item)=>{
-  // console.log(item.results.songs.data[0].id)
+
 if(item){
   return <PlaylistItemList  key={item.results.songs.data[0].id} song={item}/>
 }
