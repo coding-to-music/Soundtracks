@@ -1,7 +1,7 @@
 import React, {useContext, useEffect} from 'react'
 import SoundtrackContext from '../../context/soundtrackContext'
 import NavBar from '../Navbar'
-
+import api from '../../utils/api'
 import PlaylistItemList from './PlaylistItem'
 
 export default function Youtube() {
@@ -51,10 +51,11 @@ export default function Youtube() {
 
  const handleAddPlaylist = ()=>{
    console.log('one day i will add a playlist')
-   
    const json =createPlaylistJson(appleUserToken)
-   console.log(json)
-   
+   console.log(json)   
+   api.createApplePlaylist(json).then((data)=>{
+      console.log(data)
+   })
  }
 
   return (
@@ -72,3 +73,6 @@ if(item){
     </div>
   )
 }  
+
+
+
