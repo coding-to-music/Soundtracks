@@ -6,12 +6,12 @@ import PlaylistItemList from './PlaylistItem'
 
 export default function Youtube() {
 
-  const {appleSongs,selectedResult,selectedEpisode,selectedSeason}= useContext(SoundtrackContext)
+  const {appleSongs,selectedResult,selectedEpisode,selectedSeason, appleUserToken}= useContext(SoundtrackContext)
 
 
 
-
-  const createPlaylistJson= ()=>{
+// Create JSON for posting to apples API for the user account 
+  const createPlaylistJson= (token)=>{
    let songJson=[]
    appleSongs.map((item)=>{
       songJson= [...songJson, {
@@ -19,25 +19,27 @@ export default function Youtube() {
          type:"songs"
       }]
    })
-  
-
    const playlistJson={
-      attributes: {
-         name: `${selectedResult.assetName} ${selectedEpisode.assetName}`,
-         description: "Created by my way cool soundtrack app"
-      },
-      relationships:{
-         tracks:{
-            data:
-               songJson
-            
+      userAuth: token,
+      appleRequest: {
+         attributes: {
+            name: `${selectedResult.assetName} ${selectedEpisode.assetName}`,
+            description: "Created by my way cool soundtrack app"
+         },
+         relationships:{
+            tracks:{
+               data:
+                  songJson
+               
+            }
          }
+
+
       }
+  
    
      }
-
      return playlistJson
-
   }
 
   
@@ -49,7 +51,8 @@ export default function Youtube() {
 
  const handleAddPlaylist = ()=>{
    console.log('one day i will add a playlist')
-   const json =createPlaylistJson()
+   
+   const json =createPlaylistJson(appleUserToken)
    console.log(json)
    
  }
