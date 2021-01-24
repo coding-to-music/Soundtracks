@@ -13,11 +13,15 @@ export default function Youtube() {
 // Create JSON for posting to apples API for the user account 
   const createPlaylistJson= (token)=>{
    let songJson=[]
+   
    appleSongs.map((item)=>{
-      songJson= [...songJson, {
-         id:item.results.songs.data[0].id,
-         type:"songs"
-      }]
+if (typeof item.results.songs.data[0].id !== "undefined"){
+   songJson= [...songJson, {
+      id:item.results.songs.data[0].id,
+      type:"songs"
+   }]
+         } else{console.log('No song ID found')}
+
    })
    const playlistJson={
       userAuth: token,
