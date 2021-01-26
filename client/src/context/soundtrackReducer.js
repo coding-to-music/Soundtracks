@@ -3,7 +3,7 @@ import {SEARCH_RESULTS, SELECTED_RESULT,
   SELECTED_SEASON, EPISODE_RESULTS,
   SELECTED_EPISODE,YOUTUBE_SEARCH_RESULTS,
   YOUTUBE_VIDEO,APPLE_USER_TOKEN,
-  SET_APPLE_SONGS} from './actions'
+  SET_APPLE_SONGS, SET_CREATED_PLAYLIST} from './actions'
 
 const soundtrackReducer =(state,action)=>{
 
@@ -66,12 +66,16 @@ const soundtrackReducer =(state,action)=>{
           appleUserToken: action.payload
                       }
     case SET_APPLE_SONGS:
-      console.log('RECUDER:', action.payload)
+      
         return {
           ...state,
           appleSongs: action.payload
                                       }  
-      
+    case SET_CREATED_PLAYLIST:
+        return {
+          ...state,
+          playlistCreated: action.payload
+                                      }    
     default:
         return state
   }
