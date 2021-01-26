@@ -54,7 +54,7 @@ const getAppleSongs = async (SongArray)=>{
     console.log('-------SHOW SONGS----------')
     console.log(songs)
     setAppleSongs(songs)  
-  })
+  }).catch((error)=>{console.log(error)})
     history.push('/playlist')
     }
 
