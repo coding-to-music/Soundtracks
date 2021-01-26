@@ -63,7 +63,6 @@ router.post('/api/applesearch', ({body},res) => {
       res.json(result.data)
     } else { 
       res.json()
-      // res.send(`No results found for:  ${body.searchString}`);
       
 }
     })

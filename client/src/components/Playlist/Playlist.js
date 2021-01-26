@@ -6,9 +6,9 @@ import PlaylistItemList from './PlaylistItem'
 
 export default function Youtube() {
 
-  const {appleSongs,selectedResult,selectedEpisode,selectedSeason, appleUserToken}= useContext(SoundtrackContext)
+  const {appleSongs,selectedResult,selectedEpisode,selectedSeason, appleUserToken,playlistCreated,setPlaylistCreated}= useContext(SoundtrackContext)
 
-  let playlistCreated = false
+
 
 
 // Create JSON for posting to apples API for the user account 
@@ -59,7 +59,7 @@ if (typeof item.results.songs.data[0].id !== "undefined"){
    const json =createPlaylistJson(appleUserToken)
    console.log(json)   
    api.createApplePlaylist(json).then((data)=>{
-      playlistCreated= true
+     setPlaylistCreated(true)
       console.log(data)
    })
  }
