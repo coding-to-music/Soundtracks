@@ -21,23 +21,27 @@ export default function ShowSongs() {
     })
   },[])
 
+  const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+  }
 
 const getAppleSongs = async (SongArray)=>{
-  const songsObject =  await SongArray.map(async (item)=>{
+  
+  let songsObject = []
+  for (const item of SongArray){
+    await sleep(500)
     const title = item.title.replace(/[^a-zA-Z0-9\s]/g, ' ')
     const artist = item.artist.replace(/[^a-zA-Z0-9\s]/g, ' ')
-  const searchStr = `${title} ${artist}`
-  const result = await api.getAppleSongResult(searchStr)
-
-  if (typeof result.data.results !== "undefined"){
-    const data = result.data
-    return data
-  } else{ 
-    console.log('Nothing here')
-    }
-  })
+    const searchStr = `${title} ${artist}`
+    const result = await api.getAppleSongResult(searchStr)
+    if (typeof result.data.results !== "undefined"){
+      const data = result.data
+      songsObject.push(data)
+    } else{ 
+      console.log('Nothing here')
+      }
+  }
   return songsObject
-
 }
 
 
