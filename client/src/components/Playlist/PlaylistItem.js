@@ -25,9 +25,9 @@ const date = new Date(props.song.results.songs.data[0].attributes.releaseDate).t
       <div className='row'>
         <div className='col-4 '><img className='ellipse' src={artwork} alt='elipse'/> </div>
       
-      <div className='col'><p className='text-capitalize headline-text'>{props.song.results.songs.data[0].attributes.name} </p>
-      <p className='subline-text text-capitalize fw-light'>{props.song.results.songs.data[0].attributes.artistName}</p>
-      <p className='subline-text text-capitalize fw-light'>{date}</p>
+      <div className='col'><p className='text-capitalize headline-text lh-1'>{props.song.results.songs.data[0].attributes.name} </p>
+      <p className='subline-text text-capitalize fw-light lh-1'>{props.song.results.songs.data[0].attributes.artistName}</p>
+      <p className='subline-text text-capitalize fw-light lh-1'>{date}</p>
       </div>
      
       </div>

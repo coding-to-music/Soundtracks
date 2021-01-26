@@ -31,8 +31,8 @@ export default function ResultsItemList(props) {
         <div className='row' onClick={()=>{handleClick(props.asset)}}>
           <div className='col-4 '><img className='ellipse ' src='/images/music-bullet.svg' alt='elipse'/> </div>
         
-        <div className='col'><p className='text-capitalize headline-text'>{props.asset.assetName} </p>
-        <p className=' subline-text text-capitalize  fw-light'>{props.asset.assetType}</p>
+        <div className='col'><p className='text-capitalize headline-text lh-1'>{props.asset.assetName} </p>
+        <p className=' subline-text text-capitalize  fw-light lh-1'>{props.asset.assetType}</p>
         </div>
        
         </div>

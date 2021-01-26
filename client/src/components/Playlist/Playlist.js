@@ -74,6 +74,9 @@ if (typeof item.results.songs.data[0].id !== "undefined"){
            }
            
           </span></p>
+
+          <div className="container">
+      <ul className="mt-3">
 {appleSongs.map((item)=>{
 
 if(item){
@@ -81,6 +84,8 @@ if(item){
 }
   
 })}
+   </ul>
+    </div>
     </div>
   )
 }  

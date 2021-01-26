@@ -72,13 +72,14 @@ const handleClick = async ()=>{
     <div>
       <NavBar/>
     
-      <p className=" mt-2 shadow p-3 mb-5 bg-white rounded text-capitalize">{selectedResult.assetName}<img className="icons" onClick={()=>{handleClick(songResults)}} src='/images/create-playlist.png' alt='create playlist'/> <span></span></p>
+      <p className=" mt-2 shadow p-3 mb-5 bg-white rounded text-capitalize">{selectedResult.assetName}<img className="icons" onClick={()=>{handleClick(songResults)}} src='/images/create-playlist.png' alt='create playlist'/> <span></span></p> 
+      <div className="container">
+      <ul className="mt-3">
       {songResults.map((item)=>{
         return <SongItemList key={item.title} song={item}/>
-
-
       })}
-  
+     </ul>
+    </div>
     </div>
   )
 }

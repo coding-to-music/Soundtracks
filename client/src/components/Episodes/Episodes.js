@@ -24,10 +24,15 @@ async function getEpisodes(assetLink){
     <div>
       <NavBar/>
       <p className="mt-2 shadow p-3 mb-5 bg-white rounded text-capitalize">{selectedResult.assetName} / {selectedSeason.assetSeason}</p>
+      
+      
+      <div className="container">
+      <ul className="mt-3">
       {episodeResults.map((item)=>{
         return   <EpisodeItemList key={item.assetLink} episodedetail={item}/>
       })}
-    
+       </ul>
+    </div>
     </div>
   )
 }
