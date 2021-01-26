@@ -8,6 +8,7 @@ export default function Youtube() {
 
   const {appleSongs,selectedResult,selectedEpisode,selectedSeason, appleUserToken}= useContext(SoundtrackContext)
 
+  let playlistCreated = false
 
 
 // Create JSON for posting to apples API for the user account 
@@ -58,6 +59,7 @@ if (typeof item.results.songs.data[0].id !== "undefined"){
    const json =createPlaylistJson(appleUserToken)
    console.log(json)   
    api.createApplePlaylist(json).then((data)=>{
+      playlistCreated= true
       console.log(data)
    })
  }
@@ -66,7 +68,12 @@ if (typeof item.results.songs.data[0].id !== "undefined"){
     <div>
         <NavBar/>
       
-        <p className=" mt-2 shadow p-3 mb-5 bg-white rounded text-capitalize">{selectedResult.assetName} / {selectedSeason.assetSeason} / {selectedEpisode.assetName} <span>  <img  onClick={()=>{handleAddPlaylist()}} className="icons" src='/images/add-playlist.png' alt='create playlist'/></span></p>
+        <p className=" mt-2 shadow p-3 mb-5 bg-white rounded text-capitalize">{selectedResult.assetName} / {selectedSeason.assetSeason} / {selectedEpisode.assetName} <span>  
+           {playlistCreated ?    <img  onClick={()=>{handleAddPlaylist()}} className="icons"src='/images/apple-black-logo.svg' alt='create playlist'/> :
+           <img  onClick={()=>{handleAddPlaylist()}} className="icons"src='/images/add-playlist.png' alt='create playlist'/> 
+           }
+           
+          </span></p>
 {appleSongs.map((item)=>{
 
 if(item){
