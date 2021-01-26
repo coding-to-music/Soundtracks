@@ -41,26 +41,7 @@ const getAppleSongs = async (SongArray)=>{
       console.log('Nothing here')
       }
   }
- 
-  // const songsObject =  await SongArray.map(async (item)=>{
-  //   const title = item.title.replace(/[^a-zA-Z0-9\s]/g, ' ')
-  //   const artist = item.artist.replace(/[^a-zA-Z0-9\s]/g, ' ')
-  //   const searchStr = `${title} ${artist}`
-   
- 
-  //   const result = await api.getAppleSongResult(searchStr)
-  //   if (typeof result.data.results !== "undefined"){
-  //     const data = result.data
-  //     return data
-  //   } else{ 
-  //     console.log('Nothing here')
-  //     }
-
-
-  
-  // })
   return songsObject
-
 }
 
 
