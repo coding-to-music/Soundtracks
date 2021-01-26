@@ -31,7 +31,7 @@ history.push('/youtube')
 <div>
 <li className="list-group-item">
   <div className='row' onClick={()=>{handleClick(props)}}>
-    <div className='col-4'><img className='ellipse ' src='/images/Ellipse-1.png' alt='elipse'/> </div>
+    <div className='col-4'><img className='ellipse ' src='/images/music-bullet.svg' alt='elipse'/> </div>
   
   <div className='col'><p className='text-capitalize headline-text'>{props.song.title} </p>
   <p className=' subline-text text-capitalize fw-light'>{props.song.artist}</p>

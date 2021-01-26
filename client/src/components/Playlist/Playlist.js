@@ -69,8 +69,8 @@ if (typeof item.results.songs.data[0].id !== "undefined"){
         <NavBar/>
       
         <p className=" mt-2 shadow p-3 mb-5 bg-white rounded text-capitalize">{selectedResult.assetName} / {selectedSeason.assetSeason} / {selectedEpisode.assetName} <span>  
-           {playlistCreated ?    <img  onClick={()=>{handleAddPlaylist()}} className="icons"src='/images/apple-black-logo.svg' alt='create playlist'/> :
-           <img  onClick={()=>{handleAddPlaylist()}} className="icons"src='/images/add-playlist.png' alt='create playlist'/> 
+           {playlistCreated ?    <img  onClick={()=>{handleAddPlaylist()}} className="icons"src='/images/playlist-created.svg' alt='create playlist'/> :
+           <img  onClick={()=>{handleAddPlaylist()}} className="icons"src='/images/add-playlist.svg' alt='create playlist'/> 
            }
            
           </span></p>
