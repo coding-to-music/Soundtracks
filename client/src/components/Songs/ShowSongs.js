@@ -28,21 +28,28 @@ const getAppleSongs = async (SongArray)=>{
     const artist = item.artist.replace(/[^a-zA-Z0-9\s]/g, ' ')
   const searchStr = `${title} ${artist}`
   const result = await api.getAppleSongResult(searchStr)
-  if (result.data){
-    console.log(result.data)
-    return result.data
-  }
+
+  if (typeof result.data.results !== "undefined"){
+    const data = result.data
+    return data
+  } else{ 
+    console.log('Nothing here')
+    }
   })
-return songsObject
+  return songsObject
+
 }
 
 
   const handleClick = async ()=>{
    const songs = await getAppleSongs(songResults)
   Promise.all(songs).then((data)=>{
+    const songs = data.filter((item)=>{
+      return item !== undefined
+    })
     console.log('-------SHOW SONGS----------')
-    console.log(data)
-    setAppleSongs(data)  
+    console.log(songs)
+    setAppleSongs(songs)  
   })
     history.push('/playlist')
     }

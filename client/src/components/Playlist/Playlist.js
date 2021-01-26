@@ -1,43 +1,49 @@
 import React, {useContext, useEffect} from 'react'
 import SoundtrackContext from '../../context/soundtrackContext'
 import NavBar from '../Navbar'
-
+import api from '../../utils/api'
 import PlaylistItemList from './PlaylistItem'
 
 export default function Youtube() {
 
-  const {appleSongs,selectedResult,selectedEpisode,selectedSeason}= useContext(SoundtrackContext)
+  const {appleSongs,selectedResult,selectedEpisode,selectedSeason, appleUserToken}= useContext(SoundtrackContext)
 
 
 
-
-  const createPlaylistJson= ()=>{
+// Create JSON for posting to apples API for the user account 
+  const createPlaylistJson= (token)=>{
    let songJson=[]
+   
    appleSongs.map((item)=>{
-      songJson= [...songJson, {
-         id:item.results.songs.data[0].id,
-         type:"songs"
-      }]
-   })
-  
+if (typeof item.results.songs.data[0].id !== "undefined"){
+   songJson= [...songJson, {
+      id:item.results.songs.data[0].id,
+      type:"songs"
+   }]
+         } else{console.log('No song ID found')}
 
+   })
    const playlistJson={
-      attributes: {
-         name: `${selectedResult.assetName} ${selectedEpisode.assetName}`,
-         description: "Created by my way cool soundtrack app"
-      },
-      relationships:{
-         tracks:{
-            data:
-               songJson
-            
+      userAuth: token,
+      appleRequest: {
+         attributes: {
+            name: `${selectedResult.assetName} ${selectedEpisode.assetName}`,
+            description: "Created by my way cool soundtrack app"
+         },
+         relationships:{
+            tracks:{
+               data:
+                  songJson
+               
+            }
          }
+
+
       }
+  
    
      }
-
      return playlistJson
-
   }
 
   
@@ -49,9 +55,11 @@ export default function Youtube() {
 
  const handleAddPlaylist = ()=>{
    console.log('one day i will add a playlist')
-   const json =createPlaylistJson()
-   console.log(json)
-   
+   const json =createPlaylistJson(appleUserToken)
+   console.log(json)   
+   api.createApplePlaylist(json).then((data)=>{
+      console.log(data)
+   })
  }
 
   return (
@@ -69,3 +77,6 @@ if(item){
     </div>
   )
 }  
+
+
+
