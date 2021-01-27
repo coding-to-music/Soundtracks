@@ -9,7 +9,7 @@ import ReactTooltip from 'react-tooltip'
 
 export default function Songs() {
   
-  const {selectedResult, setSongResults,songResults,setAppleSongs}= useContext(SoundtrackContext)
+  const {selectedResult, setSongResults,songResults,setAppleSongs, setLoadingStatus,loadingStatus}= useContext(SoundtrackContext)
   const history = useHistory()  
 
   const sleep = (milliseconds) => {
@@ -58,6 +58,7 @@ const getAppleSongs = async (SongArray)=>{
 
 
 const handleClick = async ()=>{
+  setLoadingStatus(true)
   const songs = await getAppleSongs(songResults)
  Promise.all(songs).then((data)=>{
    const songs = data.filter((item)=>{
@@ -82,7 +83,10 @@ const handleClick = async ()=>{
       </ReactTooltip></span></p> 
       <div className="container">
       <ul className="mt-3">
-      {songResults.map((item)=>{
+      {loadingStatus ?  <div className="d-flex justify-content-center"><div className="spinner-grow text-primary m-4" role="status">
+  </div> <p className="font-weight-lighter display-4">Searching Please Wait....</p></div> 
+ :
+      songResults.map((item)=>{
         return <SongItemList key={item.title} song={item}/>
       })}
      </ul>
