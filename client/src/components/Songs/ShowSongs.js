@@ -8,7 +8,7 @@ import ReactTooltip from 'react-tooltip'
 
 
 export default function ShowSongs() {
-  const {selectedResult,selectedEpisode,selectedSeason,setSongResults,songResults,setAppleSongs }= useContext(SoundtrackContext)
+  const {selectedResult,selectedEpisode,selectedSeason,setSongResults,songResults,setAppleSongs,setLoadingStatus }= useContext(SoundtrackContext)
   const history = useHistory()  
 
   async function getShowSongs(assetLink){
@@ -48,8 +48,9 @@ const getAppleSongs = async (SongArray)=>{
 
 
   const handleClick = async ()=>{
+    setLoadingStatus(true)
    const songs = await getAppleSongs(songResults)
-  Promise.all(songs).then((data)=>{
+   Promise.all(songs).then((data)=>{
     const songs = data.filter((item)=>{
       return item !== undefined
     })
