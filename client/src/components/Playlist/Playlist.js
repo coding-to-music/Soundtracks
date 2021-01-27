@@ -3,6 +3,7 @@ import SoundtrackContext from '../../context/soundtrackContext'
 import NavBar from '../Navbar'
 import api from '../../utils/api'
 import PlaylistItemList from './PlaylistItem'
+import ReactTooltip from 'react-tooltip'
 
 export default function Youtube() {
 
@@ -41,8 +42,6 @@ if (typeof item.results.songs.data[0].id !== "undefined"){
 
 
       }
-  
-   
      }
      return playlistJson
   }
@@ -69,21 +68,25 @@ if (typeof item.results.songs.data[0].id !== "undefined"){
         <NavBar/>
       
         <p className=" mt-2 shadow p-3 mb-5 bg-white rounded text-capitalize">{selectedResult.assetName} / {selectedSeason.assetSeason} / {selectedEpisode.assetName} <span>  
-           {playlistCreated ?    <img  onClick={()=>{handleAddPlaylist()}} className="icons"src='/images/playlist-created.svg' alt='create playlist'/> :
-           <img  onClick={()=>{handleAddPlaylist()}} className="icons"src='/images/add-playlist.svg' alt='create playlist'/> 
+           {playlistCreated ?    <img  data-tip data-for="playlistCreated" onClick={()=>{handleAddPlaylist()}} className="icons" title="Playlist created" src='/images/playlist-created.svg' alt='create playlist'/>  :
+           <img  data-tip data-for="playlistCreated" onClick={()=>{handleAddPlaylist()}} className="icons" title="Create Playlist in your Apple Music Account"  src='/images/add-playlist.svg' alt='create playlist'/> 
            }
            
+           <ReactTooltip id="playlistCreated" place="top" effect="solid">Playlist Created</ReactTooltip>
+           <ReactTooltip id="createPlaylist" place="top" effect="solid">Create Playlist on Apple Music</ReactTooltip>
           </span></p>
 
           <div className="container">
       <ul className="mt-3">
-{appleSongs.map((item)=>{
+
+{ appleSongs.map((item)=>{
 
 if(item){
   return <PlaylistItemList  key={item.results.songs.data[0].id} song={item}/>
 }
   
-})}
+}) }
+
    </ul>
     </div>
     </div>

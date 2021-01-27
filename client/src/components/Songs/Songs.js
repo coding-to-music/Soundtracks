@@ -4,6 +4,8 @@ import SongItemList from './SongsItemList'
 import SoundtrackContext from '../../context/soundtrackContext'
 import { useHistory } from "react-router-dom";
 import NavBar from '../Navbar'
+import ReactTooltip from 'react-tooltip'
+
 
 export default function Songs() {
   
@@ -38,7 +40,7 @@ const getAppleSongs = async (SongArray)=>{
   
   let songsObject = []
   for (const item of SongArray){
-    await sleep(500)
+    await sleep(1)
     const title = item.title.replace(/[^a-zA-Z0-9\s]/g, ' ')
     const artist = item.artist.replace(/[^a-zA-Z0-9\s]/g, ' ')
     const searchStr = `${title} ${artist}`
@@ -72,7 +74,12 @@ const handleClick = async ()=>{
     <div>
       <NavBar/>
     
-      <p className=" mt-2 shadow p-3 mb-5 bg-white rounded text-capitalize">{selectedResult.assetName}<img className="icons" onClick={()=>{handleClick(songResults)}} src='/images/create-playlist.png' alt='create playlist'/> <span></span></p> 
+      <p className=" mt-2 shadow p-3 mb-5 bg-white rounded text-capitalize">{selectedResult.assetName}
+       <span>
+       <img  data-tip data-for="searchApple" className="icons" onClick={()=>{handleClick(songResults)}} src='/images/create-playlist.png' alt='create playlist'/>
+      <ReactTooltip id="searchApple" place="top" effect="solid">
+        Search Apple Music
+      </ReactTooltip></span></p> 
       <div className="container">
       <ul className="mt-3">
       {songResults.map((item)=>{

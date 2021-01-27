@@ -37,9 +37,9 @@ export default function AppleAuth() {
   return (
     <div>
       {console.log('userToken ',appleUserToken)}
-      {appleUserToken ? <p className="navbar-brand" onClick={()=>{handleSignOut()}}> Sign Out <img className="rounded-circle" src='/images/left-apple-logo.svg' alt='sign out'  /></p> :
+      {appleUserToken ? <p className="navbar-brand"  title="Sign Out" onClick={()=>{handleSignOut()}}> Sign Out <img className="rounded-circle" src='/images/left-apple-logo.svg' alt='sign out'  /></p> :
       
-      <p className="navbar-brand" onClick={()=>{handleSignIn()}} > Sign In <img className="rounded-circle" src='/images/left-black-apple.svg' alt='sign in' /></p> 
+      <p className="navbar-brand"  title="Sign In" onClick={()=>{handleSignIn()}} > Sign In <img className="rounded-circle" src='/images/left-black-apple.svg' alt='sign in' /></p> 
       }
     </div>
   )

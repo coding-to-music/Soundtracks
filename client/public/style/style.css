@@ -46,6 +46,10 @@
   max-height: 25px;
 }
 
+.icons::before {
+  content: attr(data-tooltip);
+}
+
 .headline-text {
   font-size: 1.5rem;
 }
