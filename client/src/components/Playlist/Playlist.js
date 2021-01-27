@@ -69,7 +69,7 @@ if (typeof item.results.songs.data[0].id !== "undefined"){
       
         <p className=" mt-2 shadow p-3 mb-5 bg-white rounded text-capitalize">{selectedResult.assetName} / {selectedSeason.assetSeason} / {selectedEpisode.assetName} <span>  
            {playlistCreated ?    <img  data-tip data-for="playlistCreated" onClick={()=>{handleAddPlaylist()}} className="icons" title="Playlist created" src='/images/playlist-created.svg' alt='create playlist'/>  :
-           <img  data-tip data-for="playlistCreated" onClick={()=>{handleAddPlaylist()}} className="icons" title="Create Playlist in your Apple Music Account"  src='/images/add-playlist.svg' alt='create playlist'/> 
+           <img  data-tip data-for="createPlaylist" onClick={()=>{handleAddPlaylist()}} className="icons"  src='/images/add-playlist.svg' alt='create playlist'/> 
            }
            
            <ReactTooltip id="playlistCreated" place="top" effect="solid">Playlist Created</ReactTooltip>

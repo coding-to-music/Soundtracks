@@ -8,7 +8,7 @@ import ReactTooltip from 'react-tooltip'
 
 
 export default function ShowSongs() {
-  const {selectedResult,selectedEpisode,selectedSeason,setSongResults,songResults,setAppleSongs,setLoadingStatus }= useContext(SoundtrackContext)
+  const {selectedResult,selectedEpisode,selectedSeason,setSongResults,songResults,setAppleSongs,setLoadingStatus,loadingStatus }= useContext(SoundtrackContext)
   const history = useHistory()  
 
   async function getShowSongs(assetLink){
@@ -74,7 +74,10 @@ const getAppleSongs = async (SongArray)=>{
 
     <div className="container">
       <ul className="mt-3">
-    {songResults.map((item)=>{
+    {loadingStatus ?  <div className="d-flex justify-content-center"><div className="spinner-grow text-primary m-4" role="status">
+  </div> <p className="font-weight-lighter display-4">Searching Please Wait....</p></div> 
+ :
+    songResults.map((item)=>{
       return <SongItemList key={item.title} song={item}/>
 
 

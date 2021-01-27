@@ -3,7 +3,8 @@ import {SEARCH_RESULTS, SELECTED_RESULT,
   SELECTED_SEASON, EPISODE_RESULTS,
   SELECTED_EPISODE,YOUTUBE_SEARCH_RESULTS,
   YOUTUBE_VIDEO,APPLE_USER_TOKEN,
-  SET_APPLE_SONGS, SET_CREATED_PLAYLIST} from './actions'
+  SET_APPLE_SONGS, SET_CREATED_PLAYLIST,
+  SET_LOADING_STATUS} from './actions'
 
 const soundtrackReducer =(state,action)=>{
 
@@ -75,7 +76,12 @@ const soundtrackReducer =(state,action)=>{
         return {
           ...state,
           playlistCreated: action.payload
-                                      }    
+                                      } 
+    case SET_LOADING_STATUS:
+      return {
+        ...state,
+        loadingStatus: action.payload
+                                    }       
     default:
         return state
   }
