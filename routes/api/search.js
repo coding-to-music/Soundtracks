@@ -2,9 +2,9 @@ const express = require("express");
 const router = express.Router();
 const axios = require('axios');
 const cheerio = require('cheerio');
-// const { response } = require("express");
-// GET 
+require('dotenv').config();
 
+const URL=process.env.BASE_URL
 router.get("/api/search", (req, res) => {
   res.send('WELCOME THIS API FUNCTION DOES NOT HAVE A GET RESPONSE, PLEASE USE A POST METHOD');
 });
@@ -42,7 +42,7 @@ res.json(responseArray);
 // MAKE INITAL CALL AND PASS WEBPAGE TO PARSING FUNCTION 
 async function getTFresult(searchStr) {
   try {
-    const response = await axios.get(`https://www.tunefind.com/search/site?q=${searchStr}`);
+    const response = await axios.get(`${URL}/search/site?q=${searchStr}`);
     const linkarray = parseHTMLsearch(response.data, '.tf-search-highlight');
     return linkarray;
   } catch (error) {

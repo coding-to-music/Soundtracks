@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const axios = require('axios');
 const cheerio = require('cheerio');
+require('dotenv').config();
+
+const URL=process.env.BASE_URL
 
 // GET 
 router.get("/api/songlist", (req, res) => {
@@ -38,7 +41,7 @@ router.post("/api/show/songlist", (req,res) => {
 // MAKE INITAL CALL AND PASS WEBPAGE TO PARSING FUNCTION 
 async function getSongs(songLink) {
   try {
-    const response = await axios.get(`https://www.tunefind.com${songLink.assetLink}`);
+    const response = await axios.get(`${URL}${songLink.assetLink}`);
 
     const linkarray = parseHTMLsongList(response.data, '.SongRow__center___1HKjk')
     return linkarray;

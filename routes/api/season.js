@@ -2,7 +2,9 @@ const express = require("express");
 const router = express.Router();
 const axios = require('axios');
 const cheerio = require('cheerio');
+require('dotenv').config();
 
+const URL=process.env.BASE_URL
 // GET 
 
 router.get("/api/season", (req, res) => {
@@ -50,7 +52,7 @@ function parseHTMLseasons(html, target) {
 // MAKE INITAL CALL AND PASS WEBPAGE TO PARSING FUNCTION 
 async function getSeasons(assetObj) {
   try {
-    const response = await axios.get(`https://www.tunefind.com${assetObj.assetLink}`);
+    const response = await axios.get(`${URL}${assetObj.assetLink}`);
     const linkarray = parseHTMLseasons(response.data, '.EpisodeListItem__title___32XUR')
     return linkarray;
   } catch (error) {
