@@ -19,6 +19,13 @@ const applePlaylist = require('./routes/api/appleCreatePlaylist')
 // SETUP THE WEB SERVIER AND MAKE A PUBLIC FOLDER FOR HTML/IMAGE FILES
 var app = express();
 
+
+
+if (process.env.NODE_ENV === 'production') {
+  // Exprees will serve up production assets
+  app.use(express.static('client/build'));
+
+  
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
