@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const axios = require('axios');
 const cheerio = require('cheerio');
+require('dotenv').config();
+
+const URL=process.env.BASE_URL
 
 // GET 
 
@@ -51,7 +54,7 @@ function parseHTMLEpisode(html, target) {
 async function getEpisode(episodeObj) {
   try {
 
-    const response = await axios.get(`https://www.tunefind.com${episodeObj.assetLink}`);
+    const response = await axios.get(`${URL}${episodeObj.assetLink}`);
     const linkarray = parseHTMLEpisode(response.data, '.EpisodeListItem__container___3A-mL')
     return linkarray;
   } catch (error) {
