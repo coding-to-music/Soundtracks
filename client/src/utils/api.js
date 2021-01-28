@@ -4,34 +4,34 @@ import axios from 'axios'
 export default {
 
 getSearch: function (queryStr) {
-  return axios.post('https://localhost:3000/api/search/',{
+  return axios.post('/api/search/',{
     search: queryStr
   })
 },
 getSeasons: function (queryStr){
- return axios.post('https://localhost:3000/api/season',{
+ return axios.post('/api/season',{
    assetLink: queryStr
  })
 },
 
 getEpisodes: function (queryStr){
-  return axios.post('https://localhost:3000/api/episode',{
+  return axios.post('/api/episode',{
     assetLink: queryStr
   })
  },
 
 getSongs: function (queryStr){
-  return axios.post('https://localhost:3000/api/songlist',{
+  return axios.post('/api/songlist',{
     assetLink: queryStr
   })
 },
 getShowSongs: function (queryStr){
-  return axios.post('https://localhost:3000/api/show/songlist',{
+  return axios.post('/api/show/songlist',{
     assetLink: queryStr
   })
 },
 getYoutube: function (queryStr){
-  return axios.post('https://localhost:3000/api/youtubesearch',{
+  return axios.post('/api/youtubesearch',{
     searchString: queryStr
   })
 },
