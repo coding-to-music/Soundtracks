@@ -37,19 +37,19 @@ getYoutube: function (queryStr){
 },
 
 getYoutubeVideo: function (videoId){
-  return axios.post('https://localhost:3000/api/youtubevideo',{
+  return axios.post('/api/youtubevideo',{
    videoId:videoId
   })
 },
 getAppleSongResult: function (queryStr){
-  return axios.post('https://localhost:3000/api/applesearch',{
+  return axios.post('/api/applesearch',{
     searchString:queryStr
   })
 },
 
 createApplePlaylist: function (json){
  
-    return axios.post('https://localhost:3000/api/appleplaylist',{
+    return axios.post('/api/appleplaylist',{
       json
      })
 
