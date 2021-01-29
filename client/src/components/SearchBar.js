@@ -21,7 +21,6 @@ const getSearchResults = async(searchStr)=>{
   
     getSearchResults(inputReference.current.value).then((results)=>{
       if (results.data !== undefined){
-        // console.log(results.data)
         setSearchResultsFromAPI(results.data)
       }
       else {

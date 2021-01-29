@@ -49,7 +49,7 @@ const getAppleSongs = async (SongArray)=>{
       const data = result.data
       songsObject.push(data)
     } else{ 
-      console.log('Nothing here')
+     
       }
   }
   return songsObject
@@ -64,8 +64,6 @@ const handleClick = async ()=>{
    const songs = data.filter((item)=>{
      return item !== undefined
    })
-   console.log('-------SHOW SONGS----------')
-   console.log(songs)
    setAppleSongs(songs)  
  }).catch((error)=>{console.log(error)})
    history.push('/playlist')

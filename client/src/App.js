@@ -8,7 +8,6 @@ import Songs from './components/Songs/Songs'
 import ShowSongs from './components/Songs/ShowSongs'
 import Youtube from './components/Youtube/Youtube'
 import Error from './components/Errors/Error'
-import SearchDatabase from './components/Database/SearchDatabase'
 import Playlist from './components/Playlist/Playlist'
 
  function App() {
@@ -41,10 +40,6 @@ import Playlist from './components/Playlist/Playlist'
             <ShowSongs/>
           </Route>
 
-          <Route excat path='/databasesearch'>
-            <SearchDatabase/>
-          </Route>
-          
           <Route excat path="/youtube">
             <Youtube/>
           </Route>

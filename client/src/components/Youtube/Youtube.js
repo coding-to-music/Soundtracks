@@ -7,8 +7,6 @@ import YoutubeItemList from './YoutubeItemList'
 export default function Youtube() {
 
   const {youtubeResults}= useContext(SoundtrackContext)
-console.log('youtube results, ', youtubeResults)
-
   return (
     <div>
         <NavBar/>

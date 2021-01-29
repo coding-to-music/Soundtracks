@@ -52,8 +52,6 @@ async function getSongs(songLink) {
 }
 // PARSE HTML
 function parseHTMLsongList(html, target) {
-  // console.log('GETTING THE SONGS')
-
   const $ = cheerio.load(html);
   let songInfo = [];
   $(target).each((index, element) => {
@@ -68,7 +66,7 @@ function parseHTMLsongList(html, target) {
 
 
     } else {
-      // console.log('song or artist was blank')
+    
     };
   });
   return songInfo

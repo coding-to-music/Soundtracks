@@ -7,9 +7,7 @@ const teamId = process.env.TEAM_ID
 const keyId = process.env.KEY_ID
 const alg = process.env.ALG
 
-console.log('teamid, ', teamId)
-console.log('keyid, ', keyId)
-console.log("alg, ", alg)
+
 
 
 
@@ -26,11 +24,11 @@ payload = {
   const response={
     token: devToken
   }
-  console.log('devTOKEN: ',  response)
+ 
   const issued = new Date(payload.iat*1000)
   const expires = new Date(payload.exp*1000)
-  console.log('------ISSUED------>',issued.toLocaleString())
-  console.log('------EXPIRES------>',expires.toLocaleString())
+  // console.log('------ISSUED------>',issued.toLocaleString())
+  // console.log('------EXPIRES------>',expires.toLocaleString())
   res.json(response)
 });
 

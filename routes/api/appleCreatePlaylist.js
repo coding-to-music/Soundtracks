@@ -19,7 +19,6 @@ payload = {
 
 
 async function createPlaylist(body,token){
-  console.log('route user auth: ', body.json.userAuth)
 const url = `https://api.music.apple.com/v1/me/library/playlists`
 const headers = {
       headers: {
@@ -45,7 +44,6 @@ router.get("/api/appleplaylist", (req, res) => {
 
 
 router.post('/api/appleplaylist', ({body},res) => {
-  console.log('got the request ', body.json)
   const privateKey = process.env.SECRET_KEY
   const devToken = jwt.sign(payload, privateKey, { algorithm: alg, header:{kid:keyId}});
   const result = createPlaylist(body,devToken).then((result)=>{

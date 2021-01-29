@@ -31,7 +31,6 @@ export default function YoutubeItemList(props) {
   
   return (
     <div>
-      {console.log(props.youtube)}
     <li className="list-group-item">
       <div className='row'>
         <div className='col-4 iframe-container shadow-lg'>

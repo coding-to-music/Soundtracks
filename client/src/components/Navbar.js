@@ -24,9 +24,6 @@ export default function Navbar() {
         <li className="nav-item">
           <a className="nav-link" aria-current="page" href="/">Search</a>
         </li>
-        <li className="nav-item">
-          <a className="nav-link" href="/databasesearch">Database</a>
-        </li>
       </ul>
       <AppleAuth/>
     </div>
@@ -40,4 +37,3 @@ export default function Navbar() {
 
 
 
-// src='http://via.placeholder.com/100'

@@ -33,12 +33,10 @@ async function getSongResults(searchStr,token){
   try{ 
     
     if(response.data.results.songs){
-    // console.log('-------STATUS------------')
-    // console.log(response.status , searchStr)
+  
       return response
     }else {
-     console.log('---------DID NOT FIND--------')
-     console.log(searchStr)
+
       return false
     }
 
@@ -58,11 +56,11 @@ router.get("/api/applesearch", (req, res) => {
 router.post('/api/applesearch', ({body},res) => {
   const privateKey = process.env.SECRET_KEY
   const devToken = jwt.sign(payload, privateKey, { algorithm: alg, header:{kid:keyId}});
-  console.log("devToken: ", devToken)
+ 
   const issued = new Date(payload.iat*1000)
   const expires = new Date(payload.exp*1000)
-  console.log('------ISSUED------>',issued.toLocaleString())
-  console.log('------EXPIRES------>',expires.toLocaleString())
+  // console.log('------ISSUED------>',issued.toLocaleString())
+  // console.log('------EXPIRES------>',expires.toLocaleString())
   const result = getSongResults(body.searchString,devToken).then((result)=>{
     if (result){
   

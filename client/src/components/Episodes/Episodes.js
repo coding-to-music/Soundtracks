@@ -13,7 +13,6 @@ async function getEpisodes(assetLink){
 }
 
   useEffect(()=>{
-    console.log(selectedSeason)
     getEpisodes(selectedSeason.assetLink).then((episode)=>{
     setEpisodeResults(episode.data)
     })

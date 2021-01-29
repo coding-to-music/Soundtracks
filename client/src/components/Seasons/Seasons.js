@@ -14,10 +14,7 @@ async function getSeasons(assetLink){
 }
 
 useEffect(()=>{
-  console.log(selectedResult.assetLink)
-  console.log(selectedResult.assetName)
 getSeasons(selectedResult.assetLink).then((seasons)=>{
-  console.log(seasons.data)
   setSeasonResults(seasons.data)
 })
 

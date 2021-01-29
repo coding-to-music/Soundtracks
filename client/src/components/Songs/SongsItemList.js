@@ -17,7 +17,6 @@ export default function SongsItemList(props) {
 
   
 const handleClick = async ()=> {
-  console.log('clicking')
   const searchStr = `"${props.song.title}" "${props.song.artist}"`
 const results = await  getYoutubeResults(searchStr)
 setYoutubeResults(results.data)

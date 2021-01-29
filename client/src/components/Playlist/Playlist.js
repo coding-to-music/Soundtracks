@@ -54,12 +54,9 @@ if (typeof item.results.songs.data[0].id !== "undefined"){
 
 
  const handleAddPlaylist = ()=>{
-   console.log('one day i will add a playlist')
    const json =createPlaylistJson(appleUserToken)
-   console.log(json)   
    api.createApplePlaylist(json).then((data)=>{
      setPlaylistCreated(true)
-      console.log(data)
    })
  }
 

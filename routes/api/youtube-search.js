@@ -36,8 +36,7 @@ const getYoutubeVideo = async(videoId)=>{
       ]
     }
   )
-  // console.log('-------getYoutubeVideo----------') 
-  // console.log(videoLink.data.items) 
+
     return videoLink
 
 }

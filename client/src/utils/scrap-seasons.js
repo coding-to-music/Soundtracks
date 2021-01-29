@@ -16,7 +16,6 @@ function   parseHTMLseasons  (html, target) {
 
 async function getSeasons  (assetObj) {
     try {
-      console.log('getting the seasons', assetObj)
       const response = await axios.get(`https://www.tunefind.com${assetObj.assetLink}`);
       const linkarray = parseHTMLseasons(response.data, '.EpisodeListItem__title___32XUR')
       return linkarray;
