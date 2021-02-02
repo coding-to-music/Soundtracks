@@ -11,11 +11,11 @@
 
 [Description](#description)...
 
-[Installation Requirements](#installtion-requirments)...
+[Lessons learned](#Lessons)...
+
+[Technology Used](#Technology)...
 
 [Useage](#useage)...
-
-[License](#License)...
 
 [Contribitors](#Contribitors)...
 
@@ -31,8 +31,24 @@ Have you ever been watching a show and thought, "This show has excellent music, 
 
 This is a React application with utilizes Apple MusicKit and Youtube APIs.
 
+## Lessons
+**Apple MusicKit API, and developer console:**  This had a learning curve as little documentation existed outside of Apple's developer site.  Even less documentation regarding MusicKitJS or any web related use of Apple Music beyond a basic player setup. Especially under-documented was how to authenticate a user account without having developer tokens hardcoded into the code directly.
+
+**Apple relies on JSON web tokens:**  Apple uses them for both user tokens and developer tokens.  This was a great experience to learn and understand JWT in depth. 
+
+**Youtube APIv3:**  I learned both how to use the Youtube APIv3 and documentation. The Youtube API documentation was much more manageable and verbose than Apple's, with a larger online community for support. 
+
+**Google's Developer console:**  Along with Quota calculations for Youtube API v3
+
+**Use of Global State and Context hooks within React**
 
 
+## Technology
+- Nodejs
+- React
+- ExpressJS
+- Apple MusicKit
+- Youtube APiv3
 
 ---
 ## Useage
@@ -42,12 +58,6 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-
----
-## License
-NOTICE This application is covered under MIT License license.
-
 
 ---
 ## Contribitors 
