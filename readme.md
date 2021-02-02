@@ -73,8 +73,10 @@ Example of search results for a shows season / episode:
 <img src="./screenshots/soundtracks-songresults_600xAuto.png" alt="drawing" width="300"/>
 
 Example of music restuls found on apple tha could be turned into a playlist inside users apple music account
+
 <img src="./screenshots/soundtracks-appleresults_600xAuto.png" alt="drawing" width="300"/>
 
 Youtube song restuls for a given song. 
+
 <img src="./screenshots/soundtracks-youtube_600xAuto.png" alt="drawing" width="300"/>
 
