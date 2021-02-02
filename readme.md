@@ -68,6 +68,12 @@ Please direct any additonal questions to: trilambda122@gmail.com
 
 ---
 ## ScreenShots
+
+
+Video Demo
+
+<img src="./screenshots/Soundtrack-Playlist.gif" alt="drawing" width="300"/>
+
 Example of search results for a shows season / episode: 
 
 <img src="./screenshots/soundtracks-songresults_600xAuto.png" alt="drawing" width="300"/>
