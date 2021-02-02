@@ -1,12 +1,5 @@
 
-
-
-# Project name : Soundtracks
-## Live project site can be acces here: (Currently under mainteance)
-
-## Project repo can be here: [Soundtracks](https://github.com/trilambda122/Soundtracks)
-
----
+# SoundTracks
 ## Table of Contents
 
 [Description](#description)...
