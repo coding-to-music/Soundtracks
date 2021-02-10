@@ -8,8 +8,14 @@ import ReactTooltip from 'react-tooltip'
 export default function Youtube() {
 
   const {appleSongs,selectedResult,selectedEpisode,selectedSeason, appleUserToken,playlistCreated,setPlaylistCreated}= useContext(SoundtrackContext)
-
-
+   console.log("name: ",selectedResult.assetName)
+   console.log("episode: ",selectedEpisode.assetName )
+  let playlistName=''
+  if (selectedEpisode.assetName === undefined){
+   playlistName=`${selectedResult.assetName}`
+}else {
+   playlistName=`${selectedResult.assetName} ${selectedEpisode.assetName}`
+}
 
 
 // Create JSON for posting to apples API for the user account 
@@ -29,7 +35,7 @@ if (typeof item.results.songs.data[0].id !== "undefined"){
       userAuth: token,
       appleRequest: {
          attributes: {
-            name: `${selectedResult.assetName} ${selectedEpisode.assetName}`,
+            name: playlistName,
             description: "Created by my way cool soundtrack app"
          },
          relationships:{
