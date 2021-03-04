@@ -1,19 +1,21 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 const cheerio = require('cheerio');
 require('dotenv').config();
 
-const URL=process.env.BASE_URL
+const URL = process.env.BASE_URL;
 
-// GET 
+// GET
 
-router.get("/api/episode", (req, res) => {
-  res.send('WELCOME THIS API FUNCTION DOES NOT HAVE A GET RESPONSE, PLEASE USE A POST METHOD');
+router.get('/api/episode', (req, res) => {
+  res.send(
+    'WELCOME THIS API FUNCTION DOES NOT HAVE A GET RESPONSE, PLEASE USE A POST METHOD'
+  );
 });
 
 // POST ROUTE
-//Sample json resturn from route 
+//Sample json resturn from route
 /*
   {
         "assetName": "S1 · E1 · Pilot",
@@ -21,46 +23,55 @@ router.get("/api/episode", (req, res) => {
         "assetSongs": "8"
     },
 */
-router.post("/api/episode", (req,res) => {
-  const responseArray = []
- 
+router.post('/api/episode', (req, res) => {
+  const responseArray = [];
 
-  getEpisode(req.body).then((data)=>{
-    res.json(data)
-  })
-})
+  getEpisode(req.body).then((data) => {
+    res.json(data);
+  });
+});
 
-// PARSEING FUNCTION 
+// PARSEING FUNCTION
 function parseHTMLEpisode(html, target) {
-  episodesInformationObj = []
+  episodesInformationObj = [];
   const $ = cheerio.load(html);
 
   $(target).each((index, element) => {
-    const elhtml = $(element).html()
-    const name = $(elhtml).find('.EpisodeListItem__title___32XUR').text()
-    const link = $(elhtml).find('.EpisodeListItem__title___32XUR').find('a').attr('href')
-    const song = $(element).find('.EpisodeListItem__links___xftsa').text().split(' ', 1)
+    const elhtml = $(element).html();
+    const name = $(elhtml).find('.EpisodeListItem_title__1g7Tx').text();
+    const link = $(elhtml)
+      .find('.EpisodeListItem_title__1g7Tx')
+      .find('a')
+      .attr('href');
+    const song = $(element)
+      .find('.EpisodeListItem_links__2RDBf')
+      .text()
+      .split(' ', 1);
     let episodeInfo = {
       assetName: name,
       assetLink: link,
-      assetSongs: song[0]
-    }
+      assetSongs: song[0],
+    };
     episodesInformationObj.push(episodeInfo);
+    console.log('episoded info-> ', episodeInfo);
   });
-  return episodesInformationObj
+  return episodesInformationObj;
 }
 
-// MAKE INITAL CALL AND PASS WEBPAGE TO PARSING FUNCTION 
+// MAKE INITAL CALL AND PASS WEBPAGE TO PARSING FUNCTION
 async function getEpisode(episodeObj) {
   try {
-
     const response = await axios.get(`${URL}${episodeObj.assetLink}`);
-    const linkarray = parseHTMLEpisode(response.data, '.EpisodeListItem__container___3A-mL')
+    const linkarray = parseHTMLEpisode(
+      response.data,
+      '.EpisodeListItem_container__nH0sN'
+    );
+    // .EpisodeListItem__container___3A-mL
+
     return linkarray;
   } catch (error) {
     console.error(error);
   }
-
 }
 
 module.exports = router;
