@@ -1,6 +1,8 @@
 
 # SoundTracks
 
+https://github.com/trilambda122/Soundtracks
+
 Live project site can be acces here: [SOUNDTRACKS](https://tv-soundtracks.herokuapp.com)
 
 ## Table of Contents
@@ -92,3 +94,30 @@ Youtube song restuls for a given song.
 
 <img src="./screenshots/soundtracks-youtube_600xAuto.png" alt="drawing" width="300"/>
 
+## Package.json scripts
+```java
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-client": "cd ./client && npm test",
+    "seed": "node seed/seeder.js",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run dev",
+    "start:prod": "node server.js",
+    "client": "cd ./client && npm start",
+    "install": "cd client && npm install",
+    "dev": "concurrently --names 'server,client' --prefix-colors 'yellow,blue' \"node server.js \" \" npm run client \" ",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
+```
+
+See .env.example
+```java
+NODE_ENV=dev
+TEAM_ID=
+KEY_ID=
+ALG=
+SECRET_KEY=
+BASE_URL=
+YOUTUBE_API=
+```
+
+Create a similar file .env
