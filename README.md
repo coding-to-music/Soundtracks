@@ -121,3 +121,72 @@ YOUTUBE_API=
 ```
 
 Create a similar file .env
+
+Run 
+```java
+npm run dev
+```
+
+Output
+```java
+> Version2@1.0.0 dev
+> concurrently --names 'server,client' --prefix-colors 'yellow,blue' "node server.js " " npm run client "
+
+[client] 
+[client] > Version2@1.0.0 client
+[client] > cd ./client && npm start
+[client] 
+[client] 
+[client] > client@0.1.0 start
+[client] > react-scripts start
+[client] 
+[server] ==> 🌎  Listening on port 8080. Visit http://localhost:8080/ in your browser.
+[client] ℹ ｢wds｣: Project is running at http://0.0.0.0:3000/
+[client] ℹ ｢wds｣: webpack output is served from 
+[client] ℹ ｢wds｣: Content not from webpack is served from /mnt/ap/ap/Soundtracks/client/public
+[client] ℹ ｢wds｣: 404s will fallback to /
+[client] Starting the development server...
+[client] 
+[client] Compiled with warnings.
+[client] 
+[client] src/components/AppleMusic/AppleAuth.js
+[client]   Line 29:11:  'auth' is assigned a value but never used  no-unused-vars
+[client] 
+[client] src/components/Episodes/Episodes.js
+[client]   Line 19:5:  React Hook useEffect has missing dependencies: 'selectedSeason.assetLink' and 'setEpisodeResults'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+[client] 
+[client] src/components/Playlist/Playlist.js
+[client]   Line 1:28:   'useEffect' is defined but never used                                              no-unused-vars
+[client]   Line 25:25:  Array.prototype.map() expects a return value from arrow function                   array-callback-return
+[client]   Line 85:24:  Array.prototype.map() expects a value to be returned at the end of arrow function  array-callback-return
+[client] 
+[client] src/components/Playlist/PlaylistItem.js
+[client]   Line 9:7:  'id' is assigned a value but never used  no-unused-vars
+[client] 
+[client] src/components/Seasons/Seasons.js
+[client]   Line 10:23:  'selectedSeason' is assigned a value but never used                                                                                                   no-unused-vars
+[client]   Line 10:39:  'selectedEpisode' is assigned a value but never used                                                                                                  no-unused-vars
+[client]   Line 21:3:   React Hook useEffect has missing dependencies: 'selectedResult.assetLink' and 'setSeasonResults'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+[client] 
+[client] src/components/Songs/ShowSongs.js
+[client]   Line 30:6:  React Hook useEffect has missing dependencies: 'selectedEpisode.assetLink' and 'setSongResults'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+[client] 
+[client] src/components/Songs/Songs.js
+[client]   Line 37:5:  React Hook useEffect has missing dependencies: 'getMoiveSongs', 'getShowSongs', 'selectedResult.assetLink', 'selectedResult.assetType', and 'setSongResults'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+[client] 
+[client] src/components/Youtube/Youtube.js
+[client]   Line 1:28:  'useEffect' is defined but never used  no-unused-vars
+[client] 
+[client] src/components/Youtube/YoutubeItemList.js
+[client]   Line 1:26:  'useEffect' is defined but never used                 no-unused-vars
+[client]   Line 4:8:   'api' is defined but never used                       no-unused-vars
+[client]   Line 7:19:  Missing '()' invoking a constructor                   new-parens
+[client]   Line 8:10:  'setYoutubeVideo' is assigned a value but never used  no-unused-vars
+[client]   Line 8:27:  'youtubeVideo' is assigned a value but never used     no-unused-vars
+[client]   Line 9:9:   'history' is assigned a value but never used          no-unused-vars
+[client]   Line 58:1:  Block is redundant                                    no-lone-blocks
+[client] 
+[client] Search for the keywords to learn more about each warning.
+[client] To ignore, add // eslint-disable-next-line to the line before.
+[client] 
+```
